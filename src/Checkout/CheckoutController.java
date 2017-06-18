@@ -2,11 +2,15 @@ package Checkout;
 
 public class CheckoutController {
 	
-	String accommodation;
+	
+	
+	public static void main(String[] args){
+		CheckoutController cont = new CheckoutController("villa");
+	}
 	
 	public CheckoutController(String accommodation){
-		this.accommodation = accommodation;
+		
 		CheckoutView view = new CheckoutView();
-		CheckoutModel model = new CheckoutModel();
+		CheckoutModel model = new CheckoutModel(accommodation);
 	}
 }
