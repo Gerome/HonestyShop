@@ -2,14 +2,18 @@ package checkout;
 
 public class CheckoutController {
 	
+	
+	CheckoutView view;
+	CheckoutModel model;
+	
 	public static void main(String args[]) {
 		new CheckoutController("villa");
 	}
 	
 	public CheckoutController(String accommodation){
 		
-		CheckoutView view = new CheckoutView();
-		CheckoutModel model = new CheckoutModel(accommodation);
+		view = new CheckoutView();
+		model = new CheckoutModel(accommodation);
 		
 	}
 }
