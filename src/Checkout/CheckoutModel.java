@@ -2,7 +2,10 @@ package checkout;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Locale;
+
 import product.Product;
 import product.ProductController;
 
@@ -13,19 +16,24 @@ public class CheckoutModel {
 	private String accommodation;
 	private Scanner sc;
 	private String barcode;
-	private double basketTotal = 0;
+	private BigDecimal basketTotal = new BigDecimal("0");
 	private ArrayList<Product> basket = new ArrayList<>();
-	
 	private Boolean finished = false;
+	
+	private NumberFormat euCostFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+	
 
 	public CheckoutModel(String accommodation) {
 		setAccommodation(accommodation);
 		sc = new Scanner(System.in);
-		loop();
+		euCostFormat.setMinimumFractionDigits( 2 );
+		euCostFormat.setMaximumFractionDigits( 2 );
+		checkout();
 	}
 
-	private void loop() {
-
+	private void checkout() {
+	
+		Product currentProduct = null;
 		while (!finished) {
 			
 			if (sc.hasNextLine()) {
@@ -33,18 +41,19 @@ public class CheckoutModel {
 				barcode = sc.nextLine();
 				
 				try {
-					
-					basket.add(ProductController.getProduct(barcode));
-					System.out.println("Product is: " + ProductController.getProduct(barcode).getProductName());
-					basketTotal += ProductController.getProduct(barcode).getSellPrice().doubleValue();
-					System.out.println("Current total is: " + basketTotal);
+					currentProduct = ProductController.getProduct(barcode);
+					basket.add(currentProduct);
+					basketTotal = basketTotal.add(currentProduct.getSellPrice());
+					System.out.println("Added " + currentProduct.getProductName() + " to basket");
+					System.out.println("Current total is: " + euCostFormat.format(basketTotal));
 					
 				} catch (SQLException e) {
 
 					e.printStackTrace();
 					
 				}
-				System.out.println(basket.size());
+				System.out.println("Basket size is: " + basket.size());
+				//finishCheckout();
 			}
 		}
 	}
