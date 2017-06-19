@@ -15,6 +15,8 @@ public class CheckoutModel {
 	private String barcode;
 	private double basketTotal = 0;
 	private ArrayList<Product> basket = new ArrayList<>();
+	
+	private Boolean finished = false;
 
 	public CheckoutModel(String accommodation) {
 		setAccommodation(accommodation);
@@ -24,16 +26,19 @@ public class CheckoutModel {
 
 	private void loop() {
 
-		while (true) {
+		while (!finished) {
+			
 			if (sc.hasNextLine()) {
 				
 				barcode = sc.nextLine();
 				
 				try {
+					
 					basket.add(ProductController.getProduct(barcode));
 					System.out.println("Product is: " + ProductController.getProduct(barcode).getProductName());
 					basketTotal += ProductController.getProduct(barcode).getSellPrice().doubleValue();
 					System.out.println("Current total is: " + basketTotal);
+					
 				} catch (SQLException e) {
 
 					e.printStackTrace();
@@ -45,7 +50,7 @@ public class CheckoutModel {
 	}
 
 	public void finishCheckout() {
-		System.out.println(basket);
+		finished = true;
 	}
 
 	String getAccommodation() {
