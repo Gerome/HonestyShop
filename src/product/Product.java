@@ -5,19 +5,19 @@ import java.math.BigDecimal;
 public class Product {
 
 	private String productID, productName;
-	private double buyPrice, sellPrice;
+	private BigDecimal buyPrice, sellPrice;
 	private int stockLevel, normalLevel;
 	
 	public Product(String productID, 
 			String productName,
-			double buyPrice, 
-			double sellPrice,
+			BigDecimal buyPrice, 
+			BigDecimal sellPrice,
 			int stockLevel, 
 			int normalLevel) {
 		
 		this.productID = productID;
 		this.setProductName(productName);
-		this.buyPrice = buyPrice;
+		this.setBuyPrice(buyPrice);
 		this.setSellPrice(sellPrice);
 		this.setStockLevel(stockLevel);
 		this.setNormalLevel(normalLevel);
@@ -49,12 +49,20 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public double getSellPrice() {
+	public BigDecimal getSellPrice() {
 		return sellPrice;
 	}
 
-	public void setSellPrice(double sellPrice) {
+	public void setSellPrice(BigDecimal sellPrice) {
 		this.sellPrice = sellPrice;
+	}
+
+	public BigDecimal getBuyPrice() {
+		return buyPrice;
+	}
+
+	public void setBuyPrice(BigDecimal buyPrice) {
+		this.buyPrice = buyPrice;
 	}
 	
 	

@@ -1,5 +1,6 @@
 package checkout;
 
+import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import product.Product;
@@ -12,7 +13,7 @@ public class CheckoutModel {
 	private String accommodation;
 	private Scanner sc;
 	private String barcode;
-	private double basketTotal = 0;
+	private BigDecimal basketTotal = new BigDecimal(0.00);
 	private ArrayList<Product> basket = new ArrayList<>();
 
 	public CheckoutModel(String accommodation) {
@@ -31,7 +32,7 @@ public class CheckoutModel {
 				try {
 					basket.add(ProductController.getProduct(barcode));
 					System.out.println("Product is: " + ProductController.getProduct(barcode).getProductName());
-					basketTotal += ProductController.getProduct(barcode).getSellPrice();
+					basketTotal.add(ProductController.getProduct(barcode).getSellPrice());
 					System.out.println("Current total is: " + basketTotal);
 				} catch (SQLException e) {
 
@@ -41,7 +42,6 @@ public class CheckoutModel {
 				System.out.println(basket.size());
 			}
 		}
-
 	}
 
 	public void finishCheckout() {

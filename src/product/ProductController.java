@@ -1,5 +1,6 @@
 package product;
 
+import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -30,22 +31,22 @@ public class ProductController {
 		
 		Product productV = new Product("25294651", 
     			"Vitamins",
-    			0.50,
-    			1.50,
+    			new BigDecimal(0.50),
+    			new BigDecimal(2.50),
     			10,
     			20);
 		
 		Product productW = new Product("8410055150018", 
     			"Water",
-    			2.00,
-    			2.34,
+    			new BigDecimal(2.00),
+    			new BigDecimal(2.50),
     			10,
     			20);
 		
 		Product productP = new Product("8480000341907",
     			"Pepper",
-    			2.00,
-    			2.30,
+    			new BigDecimal(1.00),
+    			new BigDecimal(1.99),
     			10,
     			20);
 		
