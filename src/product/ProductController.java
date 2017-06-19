@@ -6,6 +6,28 @@ import java.util.ArrayList;
 
 public class ProductController {
 
+	
+	static Product productV = new Product("25294651", 
+			"Vitamins",
+			new BigDecimal(0.50),
+			new BigDecimal(2.50),
+			10,
+			20);
+	
+	static Product productW = new Product("8410055150018", 
+			"Water",
+			new BigDecimal(2.00),
+			new BigDecimal(2.50),
+			10,
+			20);
+	
+	static Product productP = new Product("8480000341907",
+			"Pepper",
+			new BigDecimal(1.00),
+			new BigDecimal(1.99),
+			10,
+			20);
+	
 	/*
 	public static ArrayList<Product> getAllProducts() throws ClassNotFoundException, SQLException {
 		
@@ -28,28 +50,7 @@ public class ProductController {
 	*/
 	
 	public static Product getProduct(String productID) throws SQLException {
-		
-		Product productV = new Product("25294651", 
-    			"Vitamins",
-    			new BigDecimal(0.50),
-    			new BigDecimal(2.50),
-    			10,
-    			20);
-		
-		Product productW = new Product("8410055150018", 
-    			"Water",
-    			new BigDecimal(2.00),
-    			new BigDecimal(2.50),
-    			10,
-    			20);
-		
-		Product productP = new Product("8480000341907",
-    			"Pepper",
-    			new BigDecimal(1.00),
-    			new BigDecimal(1.99),
-    			10,
-    			20);
-		
+			
 		if(productID.equals("25294651")) return productV;
 		else if(productID.equals("8410055150018")) return productW;
 		else return productP;

@@ -44,6 +44,9 @@ public class CheckoutModel {
 					currentProduct = ProductController.getProduct(barcode);
 					basket.add(currentProduct);
 					basketTotal = basketTotal.add(currentProduct.getSellPrice());
+					System.out.println(currentProduct.getNormalLevel());
+					currentProduct.setStockLevel(currentProduct.getStockLevel() - 1);
+					System.out.println(currentProduct.getStockLevel());
 					System.out.println("Added " + currentProduct.getProductName() + " to basket");
 					System.out.println("Current total is: " + euCostFormat.format(basketTotal));
 					
