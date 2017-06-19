@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 
+@SuppressWarnings("unused")
 public class ProductController {
 
 	

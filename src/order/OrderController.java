@@ -7,6 +7,7 @@ import java.util.Date;
 
 import product.Product;
 
+@SuppressWarnings("unused")
 public class OrderController {
 
 	/*
