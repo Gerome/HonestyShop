@@ -13,7 +13,7 @@ public class CheckoutModel {
 	private String accommodation;
 	private Scanner sc;
 	private String barcode;
-	private BigDecimal basketTotal = new BigDecimal(0.00);
+	private double basketTotal = 0;
 	private ArrayList<Product> basket = new ArrayList<>();
 
 	public CheckoutModel(String accommodation) {
@@ -26,13 +26,13 @@ public class CheckoutModel {
 
 		while (true) {
 			if (sc.hasNextLine()) {
+				
 				barcode = sc.nextLine();
 				
-
 				try {
 					basket.add(ProductController.getProduct(barcode));
 					System.out.println("Product is: " + ProductController.getProduct(barcode).getProductName());
-					basketTotal.add(ProductController.getProduct(barcode).getSellPrice());
+					basketTotal += ProductController.getProduct(barcode).getSellPrice().doubleValue();
 					System.out.println("Current total is: " + basketTotal);
 				} catch (SQLException e) {
 
