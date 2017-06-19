@@ -10,9 +10,12 @@ import javax.imageio.ImageIO;
 import javax.swing.*; 
 
 public class MainView {
+	
+	MainController cont;
 
-	public MainView() {
+	public MainView(MainController controller) {
 		setupView();
+		this.cont = controller;
 	}
 
 	private void setupView() {
@@ -27,7 +30,7 @@ public class MainView {
 		String IMG_PATH = "src/resources/";
         Color BACKGROUND_COLOUR = Color.decode("#3c5f6a");
         
-        JButton villaButton = new JButton("Eco Villa");
+        JButton villaButton = new JButton("Villa");
         villaButton.setBounds(10, 10, 440, 270);
         
         JButton yurtButton = new JButton("Eco Yurt");
@@ -56,7 +59,7 @@ public class MainView {
         {
         	  public void actionPerformed(ActionEvent e)
         	  {
-        		 panel.setVisible(false);
+        		 cont.launchCheckout( villaButton.getText() );
         	  }
         	
         });
