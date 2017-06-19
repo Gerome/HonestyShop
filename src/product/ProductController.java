@@ -55,7 +55,7 @@ public class ProductController {
 		else return productP;
 	}
 		/*
-		ResultSet rst = getResultSet("SELECT productID FROM tProduct");
+		ResultSet rst = getResultSet("SELECT " + productID + " FROM tProduct");
 		
 		Product product = new Product(rst.getString("ProductID"), 
     			rst.getString("ProductName"),

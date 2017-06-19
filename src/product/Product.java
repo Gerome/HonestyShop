@@ -29,7 +29,7 @@ public class Product {
 		return stockLevel;
 	}
 
-	private void setStockLevel(int stockLevel) {
+	public void setStockLevel(int stockLevel) {
 		this.stockLevel = stockLevel;
 	}
 
