@@ -12,7 +12,7 @@ public class Order {
 			Date datetime, Double total, String name) {
 		this.orderID = orderID;
 		this.accommodation = accommodation;
-		this.datetime = datetime;
+		this.setDatetime(datetime);
 		this.setTotal(total);
 		this.name = name;
 	}
@@ -23,6 +23,14 @@ public class Order {
 
 	void setTotal(Double total) {
 		this.total = total;
+	}
+
+	public Date getDatetime() {
+		return datetime;
+	}
+
+	public void setDatetime(Date datetime) {
+		this.datetime = datetime;
 	}
 	
 	
