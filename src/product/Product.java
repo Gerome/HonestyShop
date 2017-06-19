@@ -15,7 +15,7 @@ public class Product {
 			int stockLevel, 
 			int normalLevel) {
 		
-		this.productID = productID;
+		this.setProductID(productID);
 		this.setProductName(productName);
 		this.setBuyPrice(buyPrice);
 		this.setSellPrice(sellPrice);
@@ -63,6 +63,14 @@ public class Product {
 
 	public void setBuyPrice(BigDecimal buyPrice) {
 		this.buyPrice = buyPrice;
+	}
+
+	public String getProductID() {
+		return productID;
+	}
+
+	public void setProductID(String productID) {
+		this.productID = productID;
 	}
 	
 	
