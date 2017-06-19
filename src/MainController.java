@@ -1,10 +1,21 @@
- 
+
 
 public class MainController {
 
-	public static void main(String[] args) {
-		MainModel model = new MainModel();
-		MainView view = new MainView();
+	MainModel model;
+	MainView view;
+	
+	public MainController() {
+		model = new MainModel();
+		view = new MainView();
+	}
+	
+	public void launchCheckout(String accommodation) {
+		model.launchCheckout(accommodation);
+	}
+	
+	public void launchStaffArea() {
+		model.launchStaffArea();
 	}
 	
 }
