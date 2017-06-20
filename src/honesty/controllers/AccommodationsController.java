@@ -2,9 +2,11 @@ package honesty.controllers;
 
 import honesty.Main;
 import honesty.checkout.CheckoutController;
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
+import javafx.util.Duration;
 
 public class AccommodationsController extends ControlledView {
 
@@ -12,12 +14,18 @@ public class AccommodationsController extends ControlledView {
     void barnClicked(MouseEvent event) {
     	System.out.println("Barn Clicked");
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
-    	//new CheckoutController("Barn");
+    	PauseTransition pause = new PauseTransition(Duration.millis(250));
+    	pause.setOnFinished(e -> loadNewModel());
+    	pause.play();
     }
     
     @FXML
     void staffSettingsClicked(ActionEvent event) {
     	System.out.println("Staff Settings Clicked");
     	this.getControllerParent().setScreen(Main.adminScreenID);
+    }
+    
+    private void loadNewModel(){
+    	new CheckoutController("Barn");
     }
 }
