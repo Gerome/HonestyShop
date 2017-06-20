@@ -56,7 +56,7 @@ public class ProductController {
 		
 		Product product = null;
 		
-		String url = "jdbc:mysql://localhost:3306/?user=root";
+		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
 		String username = "Gerome";
 		String password = "Divcun4s";
 		
