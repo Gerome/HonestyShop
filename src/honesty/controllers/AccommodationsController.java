@@ -15,7 +15,7 @@ public class AccommodationsController extends ControlledView {
     	System.out.println("Barn Clicked");
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
     	PauseTransition pause = new PauseTransition(Duration.millis(250));
-    	pause.setOnFinished(e -> loadNewModel());
+    	pause.setOnFinished(e -> loadNewModel("Barn"));
     	pause.play();
     }
     
@@ -25,7 +25,7 @@ public class AccommodationsController extends ControlledView {
     	this.getControllerParent().setScreen(Main.adminScreenID);
     }
     
-    private void loadNewModel(){
-    	new CheckoutController("Barn");
+    private void loadNewModel(String accommodation){
+    	new CheckoutController(accommodation);
     }
 }
