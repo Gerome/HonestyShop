@@ -1,11 +1,11 @@
-package order;
+package honesty.order;
 
 import java.math.BigDecimal;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
 
-import product.Product;
+import honesty.product.Product;
 
 @SuppressWarnings("unused")
 public class OrderController {

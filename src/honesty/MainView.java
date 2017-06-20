@@ -1,3 +1,4 @@
+package honesty;
 import java.awt.Color; 
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -11,7 +12,7 @@ import javax.swing.*;
 
 public class MainView {
 	
-	MainController cont;
+	/*MainController cont;
 
 	public MainView(MainController controller) {
 		setupView();
@@ -80,5 +81,5 @@ public class MainView {
         panel.setVisible(true);
 		frame.setVisible(true);
 	
-	}
+	}*/
 }

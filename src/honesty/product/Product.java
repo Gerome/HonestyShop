@@ -1,4 +1,4 @@
-package product;
+package honesty.product;
 
 import java.math.BigDecimal;
 

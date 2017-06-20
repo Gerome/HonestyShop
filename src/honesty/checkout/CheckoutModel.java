@@ -1,15 +1,14 @@
-package checkout;
+package honesty.checkout;
 
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Locale;
-
-import product.Product;
-import product.ProductController;
-
 import java.util.Scanner;
+
+import honesty.product.Product;
+import honesty.product.ProductController;
 
 public class CheckoutModel {
 

@@ -1,4 +1,5 @@
-import checkout.CheckoutController;
+package honesty;
+import honesty.checkout.CheckoutController;
 
 public class MainModel {
 

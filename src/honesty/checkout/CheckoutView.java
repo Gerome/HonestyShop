@@ -1,4 +1,4 @@
-package checkout;
+package honesty.checkout;
 
 public class CheckoutView {
 	
