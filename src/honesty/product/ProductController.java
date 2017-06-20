@@ -71,7 +71,7 @@ public class ProductController {
 		
 	}
 	
-	public static ResultSet getResultSet(String sql) throws SQLException {
+	private static ResultSet getResultSet(String sql) throws SQLException {
 		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?user=root");
 	    Statement stm;
 	    stm = conn.createStatement();
