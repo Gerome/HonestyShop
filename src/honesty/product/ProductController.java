@@ -29,7 +29,7 @@ public class ProductController {
 			10,
 			20);
 	
-	/*
+	
 	public static ArrayList<Product> getAllProducts() throws ClassNotFoundException, SQLException {
 		
 	    ResultSet rst = getResultSet("SELECT * FROM tProduct");
@@ -48,15 +48,15 @@ public class ProductController {
 	    return productList;
 	}
 
-	*/
+	
 	
 	public static Product getProduct(String productID) throws SQLException {
-			
+			/*
 		if(productID.equals("25294651")) return productV;
 		else if(productID.equals("8410055150018")) return productW;
 		else return productP;
-	}
-		/*
+	
+		*/
 		ResultSet rst = getResultSet("SELECT " + productID + " FROM tProduct");
 		
 		Product product = new Product(rst.getString("ProductID"), 
@@ -72,7 +72,7 @@ public class ProductController {
 	}
 	
 	public static ResultSet getResultSet(String sql) throws SQLException {
-		Connection conn = DBConnection.getDBConnection().getConnection();  // TO FIX
+		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?user=root");
 	    Statement stm;
 	    stm = conn.createStatement();
 	    ResultSet rst;
@@ -80,6 +80,6 @@ public class ProductController {
 		return rst;
 	}
 	
-	*/
+	
 	
 }

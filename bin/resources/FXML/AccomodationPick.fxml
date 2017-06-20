@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.AccommodationsController">
+   <children>
+      <VBox prefHeight="800.0" prefWidth="1000.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+         <children>
+            <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="0.0" prefWidth="630.0" VBox.vgrow="NEVER">
+               <children>
+                  <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#staffSettingsClicked" text="Staff Settings" />
+               </children>
+            </AnchorPane>
+            <GridPane hgap="10.0" vgap="10.0" VBox.vgrow="ALWAYS">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" onMouseClicked="#barnClicked" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Barn.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Barn" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="1">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../BeachYurt.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Beach Yurt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="2">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Cabin.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Cabin" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="3">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Casita.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Casita" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../ChicoYurt.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Chico Yurt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Chiquitita.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Chiquitita" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Farmhouse.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Farmhouse" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../GardenCottage.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Garden Cottage" textOverrun="CLIP" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Lodge.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Lodge" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../PalmYurt.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Palm Yurt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Royale.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Royale" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Suite.png" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Suite" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.rowIndex="3">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Tower.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Tower" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../TwinYurt.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Twin Yurt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Villa.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Villa" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                     <children>
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../Yurt.jpeg" />
+                           </image>
+                        </ImageView>
+                        <AnchorPane VBox.vgrow="ALWAYS">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Yurt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <font>
+                                    <Font name="Verdana" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </AnchorPane>
+                     </children>
+                  </VBox>
+               </children>
+            </GridPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
