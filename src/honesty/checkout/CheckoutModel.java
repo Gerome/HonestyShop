@@ -42,12 +42,11 @@ public class CheckoutModel {
 				try {
 					currentProduct = ProductController.getProduct(barcode);
 					
+					basketTotal = basketTotal.add(currentProduct.getSellPrice());
+					
 					if(!basket.contains(currentProduct))
 						basket.add(currentProduct);
 						
-					
-					basketTotal = basketTotal.add(currentProduct.getSellPrice());
-					
 					currentProduct.setStockLevel(currentProduct.getStockLevel() - 1);
 					System.out.println(currentProduct.getStockLevel());
 					System.out.println("Added " + currentProduct.getProductName() + " to basket");
@@ -60,7 +59,7 @@ public class CheckoutModel {
 				} catch (NullPointerException e) {
 					e.printStackTrace();
 				}
-				System.out.println("Basket size is: " + basket.size());
+				System.out.println("4Basket size is: " + basket.size());
 				//finishCheckout();
 			}
 		}
