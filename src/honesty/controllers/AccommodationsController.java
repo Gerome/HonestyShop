@@ -14,9 +14,9 @@ public class AccommodationsController extends ControlledView {
     void barnClicked(MouseEvent event) {
     	System.out.println("Barn Clicked");
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
-    	PauseTransition pause = new PauseTransition(Duration.millis(250));
+    	/*PauseTransition pause = new PauseTransition(Duration.millis(250));
     	pause.setOnFinished(e -> loadNewModel("Barn"));
-    	pause.play();
+    	pause.play();*/
     }
     
     @FXML
