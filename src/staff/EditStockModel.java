@@ -21,7 +21,7 @@ public class EditStockModel {
 	}
 	
 	public void createNewProduct(String productID, String productName, BigDecimal buyPrice, 
-			BigDecimal sellPrice, int stockLevel, int normalLevel) throws SQLException {  // 
+		BigDecimal sellPrice, int stockLevel, int normalLevel) throws SQLException {  // 
 		
 		Product productToAdd = new Product(productID, productName, buyPrice, 
 				 sellPrice, stockLevel, normalLevel);

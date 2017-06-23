@@ -23,4 +23,8 @@ public class EditStockController extends ControlledView {
 		}
     }
     
+    @FXML
+    void editStockClicked(ActionEvent event) {
+
+    }
 }
