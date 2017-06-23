@@ -34,19 +34,28 @@ public class ProductController {
 	
 	public static ArrayList<Product> getAllProducts() throws ClassNotFoundException, SQLException {
 		
-	    ResultSet rst = getResultSet("SELECT * FROM tProduct");
+		Product product = null;
+		
+		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
+		String username = "Gerome";
+		String password = "Divcun4s";
+		
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product");
 	    
 	    ArrayList<Product> productList = new ArrayList<>();
 	    
-	    while (rst.next()) {
-	    	Product product = new Product(rst.getString("ProductID"), 
-	    			rst.getString("ProductName"),
-	    			rst.getBigDecimal("BuyPrice"),
-	    			rst.getBigDecimal("SellPrice"),
-	    			rst.getInt("StockLevel"),
-	    			rst.getInt("NormalLevel"));
+	    while (rs.next()) {
+	    	product = new Product(rs.getString("ProductID"), 
+	    			rs.getString("ProductName"),
+	    			rs.getBigDecimal("BuyPrice"),
+	    			rs.getBigDecimal("SellPrice"),
+	    			rs.getInt("StockLevel"),
+	    			rs.getInt("NormalLevel"));
 	        productList.add(product);
 	    }
+	    
 	    return productList;
 	}
 
