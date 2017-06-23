@@ -9,27 +9,25 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 @SuppressWarnings("unused")
 public class ProductController {
 
-	
-	static Product productV = new Product("25294651", 
-			"Vitamins",
-			new BigDecimal(0.50),
-			new BigDecimal(2.50),
-			10,
-			20);
-	
-	static Product productW = new Product("8410055150018", 
-			"Water",
-			new BigDecimal(2.00),
-			new BigDecimal(2.50),
-			10,
-			20);
-	
-	static Product productP = new Product("8480000341907",
-			"Pepper",
-			new BigDecimal(1.00),
-			new BigDecimal(1.99),
-			10,
-			20);
+
+	public static void newProduct(Product product) throws SQLException {
+		
+		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
+		String username = "Gerome";
+		String password = "Divcun4s";
+		
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+		
+		stmt.executeUpdate("INSERT INTO mydb.Product (ProductID, ProductName, BuyPrice, SellPrice, StockLevel, NormalLevel) VALUES(" 
+		+ product.getProductID() 
+		+ ",\"" + product.getProductName() 
+		+ "\"," + product.getBuyPrice()
+		+ "," + product.getSellPrice()
+		+ "," + product.getStockLevel()
+		+ "," + product.getNormalLevel()
+		+ ");");
+	}
 	
 	
 	public static ArrayList<Product> getAllProducts() throws ClassNotFoundException, SQLException {
