@@ -7,13 +7,13 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class ScanController extends ControlledView {
+public class CheckoutController extends ControlledView {
 	
 	@FXML
     private TextField inputField;
 	private CheckoutModel model; 
 	
-	public ScanController(){
+	public CheckoutController(){
 		model = new CheckoutModel("temp"); // This class needs an Accommodation as an argument
 	}
 
@@ -31,13 +31,13 @@ public class ScanController extends ControlledView {
     @FXML
     void mouseEntered(MouseEvent event) {
     	mouseMoved(event);
-    	
     }
 
     @FXML
     void mouseMoved(MouseEvent event) {
     	inputField.requestFocus();
     	model.checkout(inputField.getText());
+    	inputField.setText("");
     }
     
     @FXML
