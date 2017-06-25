@@ -17,6 +17,7 @@ public class AccommodationsController extends ControlledView {
     	/*PauseTransition pause = new PauseTransition(Duration.millis(250));
     	pause.setOnFinished(e -> loadNewModel("Barn"));
     	pause.play();*/
+    	loadNewModel("Barn");
     }
     
     @FXML

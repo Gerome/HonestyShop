@@ -1,6 +1,7 @@
 package honesty.controllers;
 
 import honesty.Main;
+import honesty.checkout.CheckoutController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
@@ -20,6 +21,7 @@ public class ScanController extends ControlledView {
     @FXML
     void inputFieldOnAction(ActionEvent event) {
     	System.out.println("Enter Pressed Clicked");
+    	new CheckoutController("Barn");
     }
     
 

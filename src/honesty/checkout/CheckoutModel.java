@@ -18,51 +18,49 @@ public class CheckoutModel {
 	private BigDecimal basketTotal = new BigDecimal("0");
 	private ArrayList<Product> basket = new ArrayList<>();
 	private Boolean finished = false;
-	
+
 	private NumberFormat euCostFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
-	
 
 	public CheckoutModel(String accommodation) {
 		setAccommodation(accommodation);
 		sc = new Scanner(System.in);
-		euCostFormat.setMinimumFractionDigits( 2 );
-		euCostFormat.setMaximumFractionDigits( 2 );
+		euCostFormat.setMinimumFractionDigits(2);
+		euCostFormat.setMaximumFractionDigits(2);
 		checkout();
 	}
 
 	private void checkout() {
-	
-		Product currentProduct = null;
-		while (!finished) {
-			
-			if (sc.hasNextLine()) {
-				
-				barcode = sc.nextLine();
-				
-				try {
-					currentProduct = ProductController.getProduct(barcode);
-					
-					basketTotal = basketTotal.add(currentProduct.getSellPrice());
-					
-					if(!basket.contains(currentProduct))
-						basket.add(currentProduct);
-						
-					currentProduct.setStockLevel(currentProduct.getStockLevel() - 1);
-					System.out.println(currentProduct.getStockLevel());
-					System.out.println("Added " + currentProduct.getProductName() + " to basket");
-					System.out.println("Current total is: " + euCostFormat.format(basketTotal));
-					
-				} catch (SQLException e) {
 
-					e.printStackTrace();
-					
-				} catch (NullPointerException e) {
-					e.printStackTrace();
-				}
-				System.out.println("4Basket size is: " + basket.size());
-				//finishCheckout();
+		Product currentProduct = null;
+
+		if (sc.hasNextLine()) {
+
+			barcode = sc.nextLine();
+
+			try {
+				currentProduct = ProductController.getProduct(barcode);
+
+				basketTotal = basketTotal.add(currentProduct.getSellPrice());
+
+				if (!basket.contains(currentProduct))
+					basket.add(currentProduct);
+
+				currentProduct.setStockLevel(currentProduct.getStockLevel() - 1);
+
+				System.out.println("Added " + currentProduct.getProductName() + " to basket");
+				System.out.println("Current total is: " + euCostFormat.format(basketTotal));
+
+			} catch (SQLException e) {
+
+				e.printStackTrace();
+
+			} catch (NullPointerException e) {
+				e.printStackTrace();
 			}
+			System.out.println("Basket size is: " + basket.size());
+			// finishCheckout();
 		}
+
 	}
 
 	public void finishCheckout() {
