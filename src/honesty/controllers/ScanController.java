@@ -22,7 +22,6 @@ public class ScanController extends ControlledView {
     	System.out.println("Enter Pressed Clicked");
     }
     
-
     @FXML
     void mouseEntered(MouseEvent event) {
     	mouseMoved(event);
