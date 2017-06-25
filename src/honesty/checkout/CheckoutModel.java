@@ -18,7 +18,8 @@ public class CheckoutModel {
 	private BigDecimal basketTotal = new BigDecimal("0");
 	private ArrayList<Product> basket = new ArrayList<>();
 	private Boolean finished = false;
-
+	private Product currentProduct;
+	
 	private NumberFormat euCostFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
 
 	public CheckoutModel(String accommodation) {
@@ -26,17 +27,12 @@ public class CheckoutModel {
 		sc = new Scanner(System.in);
 		euCostFormat.setMinimumFractionDigits(2);
 		euCostFormat.setMaximumFractionDigits(2);
-		checkout();
+		currentProduct = null;
 	}
 
-	private void checkout() {
+	public void checkout(String barcode) {
 
-		Product currentProduct = null;
-
-		
-
-			
-
+	
 			try {
 				currentProduct = ProductController.getProduct(barcode);
 
@@ -58,7 +54,6 @@ public class CheckoutModel {
 				e.printStackTrace();
 			}
 			System.out.println("Basket size is: " + basket.size());
-			// finishCheckout();
 		}
 
 	
