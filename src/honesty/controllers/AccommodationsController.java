@@ -1,7 +1,6 @@
 package honesty.controllers;
 
-import honesty.Main;
-import honesty.checkout.CheckoutController;
+import honesty.Main; 
 import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,9 +16,6 @@ public class AccommodationsController extends ControlledView {
     	/*PauseTransition pause = new PauseTransition(Duration.millis(250));
     	pause.setOnFinished(e -> loadNewModel("Barn"));
     	pause.play();*/
-    	
-    	
-   
     }
     
     @FXML
@@ -28,7 +24,5 @@ public class AccommodationsController extends ControlledView {
     	this.getControllerParent().setScreen(Main.authenticationScreenID);
     }
     
-    private void loadNewModel(String accommodation){
-    	new CheckoutController(accommodation);
-    }
+    
 }
