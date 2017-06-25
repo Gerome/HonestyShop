@@ -1,17 +1,17 @@
 package honesty.controllers;
 
-import honesty.Main; 
-import javafx.animation.PauseTransition;
+import honesty.Main;
+import honesty.checkout.CheckoutModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
-import javafx.util.Duration;
 
 public class AccommodationsController extends ControlledView {
 
     @FXML
     void barnClicked(MouseEvent event) {
     	System.out.println("Barn Clicked");
+    	((CheckoutController) getControllerParent().getControlledView(Main.checkoutScreenID)).setCheckoutModel(new CheckoutModel("temp"));
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
     	/*PauseTransition pause = new PauseTransition(Duration.millis(250));
     	pause.setOnFinished(e -> loadNewModel("Barn"));

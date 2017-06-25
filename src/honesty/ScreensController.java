@@ -8,25 +8,31 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Pair;
 
 public class ScreensController extends AnchorPane {
 	
-	private HashMap<String, Node> screens = new HashMap<>();
+	private HashMap<String, Pair<ControlledView, Node>> screens = new HashMap<>();
 
 	public Node getScreen(String key){
-		return screens.get(key);
+		return screens.get(key).getValue();
 	}
 	
-	public void addScreen(String name, Node screen){
-		screens.put(name, screen);
+	public ControlledView getControlledView(String key){
+		return screens.get(key).getKey();
+	}
+	
+	public void addScreen(String name, ControlledView controller, Node screen){
+		screens.put(name, new Pair<ControlledView, Node>(controller, screen));
 	}
 	
 	public boolean loadScreen(String name, String res) {
         try {
             FXMLLoader screenLoader = new FXMLLoader(getClass().getResource(res));
             Parent loadedScreen = screenLoader.load();
-            ((ControlledView) screenLoader.getController()).setControllerParent(this);
-            addScreen(name, loadedScreen);
+            ControlledView controller = (ControlledView) screenLoader.getController();
+            controller.setControllerParent(this);
+            addScreen(name, controller, loadedScreen);
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,9 +44,9 @@ public class ScreensController extends AnchorPane {
         if (screens.get(name) != null) {
             if (!getChildren().isEmpty()) {
                 getChildren().remove(0);
-                getChildren().add(0, screens.get(name));
+                getChildren().add(0, screens.get(name).getValue());
             } else {
-                getChildren().add(screens.get(name));
+                getChildren().add(screens.get(name).getValue());
             }
             return true;
         } else {

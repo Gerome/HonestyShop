@@ -12,10 +12,6 @@ public class CheckoutController extends ControlledView {
 	@FXML
     private TextField inputField;
 	private CheckoutModel model; 
-	
-	public CheckoutController(){
-		model = new CheckoutModel("temp"); // This class needs an Accommodation as an argument
-	}
 
     @FXML
     void cancelClicked(ActionEvent event) {
@@ -44,6 +40,10 @@ public class CheckoutController extends ControlledView {
     @FXML
     void backgroundClicked(MouseEvent event) {
     	mouseMoved(event);
+    }
+    
+    public void setCheckoutModel(CheckoutModel model){
+    	this.model = model;
     }
     
 }
