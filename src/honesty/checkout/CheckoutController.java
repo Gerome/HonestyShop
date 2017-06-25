@@ -14,6 +14,7 @@ public class CheckoutController {
 		
 		//view = new CheckoutView();
 		model = new CheckoutModel(accommodation);
+
 		
 	}
 }

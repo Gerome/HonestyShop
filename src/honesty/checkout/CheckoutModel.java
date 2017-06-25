@@ -33,9 +33,9 @@ public class CheckoutModel {
 
 		Product currentProduct = null;
 
-		if (sc.hasNextLine()) {
+		
 
-			barcode = sc.nextLine();
+			
 
 			try {
 				currentProduct = ProductController.getProduct(barcode);
@@ -61,7 +61,7 @@ public class CheckoutModel {
 			// finishCheckout();
 		}
 
-	}
+	
 
 	public void finishCheckout() {
 		finished = true;
