@@ -24,7 +24,6 @@ public class ScanController extends ControlledView {
     	new CheckoutController("Barn");
     }
     
-
     @FXML
     void mouseEntered(MouseEvent event) {
     	mouseMoved(event);

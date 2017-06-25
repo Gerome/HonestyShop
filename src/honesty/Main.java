@@ -27,16 +27,18 @@ public class Main extends Application {
 		model.launchStaffArea();
 	}*/
 	
-	public static String accommodationScreenID   = "accommodation";
-	public static String accommodationScreenFXML = "/resources/FXML/AccomodationPick.fxml";
-	public static String adminScreenID           = "admin";
-	public static String adminScreenFXML         = "/resources/FXML/AdminScreen.fxml";
-	public static String editStockScreenID       = "edit";
-	public static String editStockScreenFXML     = "/resources/FXML/EditStockScreen.fxml";
-	public static String getBillScreenID         = "bill";
-	public static String getBillScreenFXML       = "/resources/FXML/GetBillScreen.fxml";
-	public static String checkoutScreenID        = "checkout";
-	public static String checkoutScreenFXML      = "/resources/FXML/CheckoutScreen.fxml";
+	public static String accommodationScreenID    = "accommodation";
+	public static String accommodationScreenFXML  = "/resources/FXML/AccomodationPick.fxml";
+	public static String adminScreenID            = "admin";
+	public static String adminScreenFXML          = "/resources/FXML/AdminScreen.fxml";
+	public static String editStockScreenID        = "edit";
+	public static String editStockScreenFXML      = "/resources/FXML/EditStockScreen.fxml";
+	public static String getBillScreenID          = "bill";
+	public static String getBillScreenFXML        = "/resources/FXML/GetBillScreen.fxml";
+	public static String checkoutScreenID         = "checkout";
+	public static String checkoutScreenFXML       = "/resources/FXML/CheckoutScreen.fxml";
+	public static String authenticationScreenID   = "auth";
+	public static String authenticationScreenFXML = "/resources/FXML/AuthenticationScreen.fxml";
 	
 	public static void main( String args[] ){
 		launch(args);
@@ -53,6 +55,7 @@ public class Main extends Application {
 		mainController.loadScreen(editStockScreenID, editStockScreenFXML);
 		mainController.loadScreen(getBillScreenID, getBillScreenFXML);
 		mainController.loadScreen(checkoutScreenID, checkoutScreenFXML);
+		mainController.loadScreen(authenticationScreenID, authenticationScreenFXML);
 		
 		// Set the opening screen to the accommodation screen.
 		mainController.setScreen(accommodationScreenID);
