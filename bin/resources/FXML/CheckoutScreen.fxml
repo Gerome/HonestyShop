@@ -16,7 +16,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backClicked" text="Back">
+      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelClicked" text="Cancel">
          <font>
             <Font size="18.0" />
          </font>

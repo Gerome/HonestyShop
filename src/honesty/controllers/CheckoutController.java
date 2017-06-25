@@ -18,8 +18,8 @@ public class CheckoutController extends ControlledView {
 	}
 
     @FXML
-    void backClicked(ActionEvent event) {
-    	System.out.println("Back Clicked: " + getClass());
+    void cancelClicked(ActionEvent event) {
+    	System.out.println("Cancel Clicked: " + getClass());
     	this.getControllerParent().setScreen(Main.accommodationScreenID);
     }
     
