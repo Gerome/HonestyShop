@@ -1,11 +1,8 @@
 package honesty.controllers;
 
-import java.sql.SQLException;
-
 import honesty.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import staff.EditStockModel;
 
 public class EditStockController extends ControlledView {
 
