@@ -32,6 +32,7 @@ public class ScanController extends ControlledView {
     @FXML
     void mouseMoved(MouseEvent event) {
     	inputField.requestFocus();
+    	
     }
     
     @FXML
