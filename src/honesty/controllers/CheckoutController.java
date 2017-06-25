@@ -6,7 +6,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 
-public class ScanController extends ControlledView {
+public class CheckoutController extends ControlledView {
 	
 	@FXML
     private TextField inputField;
