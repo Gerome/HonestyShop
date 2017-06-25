@@ -26,6 +26,8 @@ public class CheckoutController extends ControlledView {
     @FXML
     void inputFieldOnAction(ActionEvent event) {
     	System.out.println("Enter Pressed Clicked");	
+    	model.checkout(inputField.getText());
+    	inputField.setText("");
     }
     
     @FXML
@@ -36,8 +38,7 @@ public class CheckoutController extends ControlledView {
     @FXML
     void mouseMoved(MouseEvent event) {
     	inputField.requestFocus();
-    	model.checkout(inputField.getText());
-    	inputField.setText("");
+    	
     }
     
     @FXML
