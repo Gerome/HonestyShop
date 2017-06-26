@@ -20,6 +20,11 @@ public class CheckoutController extends ControlledView {
     }
     
     @FXML
+    void confirmClicked(ActionEvent event) {
+    	inputField.requestFocus();
+    }
+    
+    @FXML
     void inputFieldOnAction(ActionEvent event) {
     	System.out.println("Enter Pressed Clicked");	
     	model.checkout(inputField.getText());
