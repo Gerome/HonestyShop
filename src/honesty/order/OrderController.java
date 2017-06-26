@@ -10,6 +10,19 @@ import honesty.product.Product;
 @SuppressWarnings("unused")
 public class OrderController {
 
+	public static void newOrder(Order order) throws SQLException {
+
+		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
+		String username = "Gerome";
+		String password = "Divcun4s";
+
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+
+		stmt.executeUpdate("INSERT INTO mydb.Order (OrderID, AccommodationID, Total, Name) VALUES(" + order.getOrderID()
+				+ ",\"" + order.getAccommodation() + "\"," + order.getTotal() + ",\"" + order.getName() + "\");");
+	}
+
 	public static ArrayList<Order> getAllOrders() throws ClassNotFoundException, SQLException {
 
 		ResultSet rst = getResultSet("SELECT * FROM tOrder");
