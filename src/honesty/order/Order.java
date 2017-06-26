@@ -19,7 +19,6 @@ public class Order {
 		this.setDatetime(datetime);
 		this.setTotal(total);
 		this.setName(name);
-		this.setItemList(new ArrayList<Product>());
 	}
 
 	Double getTotal() {
