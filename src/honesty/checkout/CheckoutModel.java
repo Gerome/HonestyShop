@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
@@ -54,6 +55,7 @@ public class CheckoutModel {
 	}
 
 	public void finishCheckout() {
+		order = new Order("temp", accommodation, new Date(), basketTotal.doubleValue(), "name");
 		order.setItemList(basket);
 	}
 
