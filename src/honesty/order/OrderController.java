@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.UUID;
 
 import honesty.product.Product;
 
@@ -39,6 +40,8 @@ public class OrderController {
 			");");
 			
 		}
+		
+		System.out.println("Finished the purchase"); 
 	}
 
 	public static ArrayList<Order> getAllOrders() throws ClassNotFoundException, SQLException {
@@ -59,7 +62,6 @@ public class OrderController {
 	public static Order getOrder(String orderID) throws SQLException {
 		return null;
 
-		
 
 	}
 
@@ -70,6 +72,11 @@ public class OrderController {
 		ResultSet rst;
 		rst = stm.executeQuery(sql);
 		return rst;
+	}
+
+	public static String generateOrderID() {
+		String uniqueID = UUID.randomUUID().toString();
+		return uniqueID;
 	}
 
 }

@@ -57,7 +57,7 @@ public class CheckoutModel {
 	}
 
 	public void finishCheckout() throws SQLException {
-		order = new Order("V0001", accommodation, sdf.format(new Date()), basketTotal.doubleValue(), "Gerome");
+		order = new Order(OrderController.generateOrderID(), accommodation, sdf.format(new Date()), basketTotal.doubleValue(), "Gerome");
 		order.setItemList(basket);
 		System.out.println(order.getDatetime());
 		OrderController.newOrder(order);
