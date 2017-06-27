@@ -1,5 +1,7 @@
 package honesty.controllers;
 
+import java.sql.SQLException;
+
 import honesty.Main;
 import honesty.checkout.CheckoutModel;
 import javafx.event.ActionEvent;
@@ -20,8 +22,10 @@ public class CheckoutController extends ControlledView {
     }
     
     @FXML
-    void confirmClicked(ActionEvent event) {
-    	inputField.requestFocus();
+    void confirmClicked(ActionEvent event) throws SQLException {
+    	System.out.println("Confirm Clicked: " + getClass());
+    	model.finishCheckout();
+    	this.getControllerParent().setScreen(Main.accommodationScreenID);
     }
     
     @FXML

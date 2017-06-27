@@ -1,22 +1,20 @@
 package honesty.order;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import honesty.product.Product;
 
 public class Order {
 	
-	private String orderID, accommodation, name;
-	private Date datetime;
+	private String orderID, accommodation, name, datetime;
 	private Double total;
 	private ArrayList<Product> productList;
 
 	public Order(String orderID, String accommodation, 
-			Date datetime, Double total, String name) {
+			String date, Double total, String name) {
 		this.setOrderID(orderID);
 		this.setAccommodation(accommodation);
-		this.setDatetime(datetime);
+		this.setDatetime(date);
 		this.setTotal(total);
 		this.setName(name);
 	}
@@ -29,12 +27,12 @@ public class Order {
 		this.total = total;
 	}
 
-	public Date getDatetime() {
+	public String getDatetime() {
 		return datetime;
 	}
 
-	public void setDatetime(Date datetime) {
-		this.datetime = datetime;
+	public void setDatetime(String date) {
+		this.datetime = date;
 	}
 
 	public String getOrderID() {
