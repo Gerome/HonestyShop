@@ -1,6 +1,7 @@
 package honesty.order;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -19,8 +20,25 @@ public class OrderController {
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
 
-		stmt.executeUpdate("INSERT INTO mydb.Order (OrderID, AccommodationID, Total, Name) VALUES(" + order.getOrderID()
-				+ ",\"" + order.getAccommodation() + "\"," + order.getTotal() + ",\"" + order.getName() + "\");");
+		stmt.executeUpdate("INSERT INTO mydb.Order (OrderID, Accommodation, Date, Total, Name) VALUES(\"" 
+		+ order.getOrderID()
+		+ "\",\"" + order.getAccommodation() 
+		+ "\",\"" + order.getDatetime() 
+		+ "\"," + order.getTotal()
+		+ ",\"" + order.getName() 
+		+ "\");");
+		
+		for(Product product : order.getItemList()) {
+			
+			stmt.executeUpdate("INSERT INTO mydb.OrderDetail (OrderID, ProductID, Quantity, LineTotal) VALUES(\"" 
+			+ order.getOrderID() 
+			+ "\",\""  + product.getProductID()
+			+ "\"," 
+			+ 1
+			+ "," + (product.getSellPrice().setScale(2, RoundingMode.UP).doubleValue() * 1)  + 
+			");");
+			
+		}
 	}
 
 	public static ArrayList<Order> getAllOrders() throws ClassNotFoundException, SQLException {
@@ -30,7 +48,7 @@ public class OrderController {
 		ArrayList<Order> orderList = new ArrayList<>();
 
 		while (rst.next()) {
-			Order order = new Order(rst.getString("OrderID"), rst.getString("AccommodationID"), rst.getDate("DateTime"),
+			Order order = new Order(rst.getString("OrderID"), rst.getString("AccommodationID"), rst.getString("DateTime"),
 					rst.getDouble("Total"), rst.getString("Name"));
 
 			orderList.add(order);
@@ -39,15 +57,9 @@ public class OrderController {
 	}
 
 	public static Order getOrder(String orderID) throws SQLException {
+		return null;
 
-		Order order1 = new Order("Villa20170601", "Villa", new Date(), 23.59, "Logan paul");
-
-		Order order2 = new Order("Yurt20170601", "Yurt", new Date(), 39.99, "Jake Paul");
-
-		if (order1.equals("Villa20170601"))
-			return order1;
-		else
-			return order2;
+		
 
 	}
 
