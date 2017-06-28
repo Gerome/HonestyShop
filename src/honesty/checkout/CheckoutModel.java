@@ -36,7 +36,7 @@ public class CheckoutModel {
 
 		try {
 			
-			if(!basket.isEmpty() && basketContains(barcode)){
+			if(!basket.isEmpty() && basketContainsProductWith(barcode)){
 				currentProduct.setQuantity(currentProduct.getQuantity() + 1);
 				System.out.println("Increased quantity of " + currentProduct.getProductName() + "\nCurrent quantity is:" + currentProduct.getQuantity());
 			} else {
@@ -66,7 +66,7 @@ public class CheckoutModel {
 		}
 	}
 
-	private boolean basketContains(String barcode) {
+	private boolean basketContainsProductWith(String barcode) {
 		for(Product product : basket){
 			if (product.getProductID().equals(barcode)){
 				return true;
@@ -80,7 +80,6 @@ public class CheckoutModel {
 		order.setItemList(basket);
 		System.out.println(order.getDatetime());
 		OrderController.newOrder(order);
-		
 	}
 
 	String getAccommodation() {

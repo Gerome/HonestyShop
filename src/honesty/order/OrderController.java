@@ -41,6 +41,9 @@ public class OrderController {
 			+ "," 	  + (product.getSellPrice().setScale(2, RoundingMode.UP).doubleValue() * product.getQuantity())  + 
 			");");
 			
+			stmt.executeUpdate("UPDATE mydb.Product "
+					+ "SET StockLevel = StockLevel - " + product.getQuantity() 
+					+ " WHERE ProductID = " + product.getProductID());
 		}
 		
 		System.out.println("Finished the purchase"); 
