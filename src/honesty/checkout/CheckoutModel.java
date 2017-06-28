@@ -35,13 +35,20 @@ public class CheckoutModel {
 	public void checkout(String barcode) {
 
 		try {
-			currentProduct = ProductController.getProduct(barcode);
-
-			basketTotal = basketTotal.add(currentProduct.getSellPrice()).setScale(2, RoundingMode.UP);
-
-			if (!basket.contains(currentProduct))
+			
+			if(!basket.isEmpty() && basketContains(barcode)){
+				currentProduct.setQuantity(currentProduct.getQuantity() + 1);
+				System.out.println("Increased quantity of " + currentProduct.getProductName() + "\nCurrent quantity is:" + currentProduct.getQuantity());
+			} else {
+				currentProduct = ProductController.getProduct(barcode);
 				basket.add(currentProduct);
-
+				currentProduct.setQuantity(1);
+				System.out.println("Added new product:" + currentProduct.getProductName());
+			}
+			
+			basketTotal = basketTotal.add(currentProduct.getSellPrice()).setScale(2, RoundingMode.UP);
+			
+			
 			currentProduct.setStockLevel(currentProduct.getStockLevel() - 1);
 
 			System.out.println("Added " + currentProduct.getProductName() + " to basket");
@@ -59,8 +66,17 @@ public class CheckoutModel {
 		}
 	}
 
+	private boolean basketContains(String barcode) {
+		for(Product product : basket){
+			if (product.getProductID().equals(barcode)){
+				return true;
+			}
+		} 
+		return false;
+	}
+
 	public void finishCheckout() throws SQLException {
-		order = new Order(OrderController.generateOrderID(), accommodation, sdf.format(new Date()), basketTotal.doubleValue(), "Gerome");
+		order = new Order(sdf.format(new Date()) + accommodation, accommodation, sdf.format(new Date()), basketTotal.doubleValue(), "Gerome");
 		order.setItemList(basket);
 		System.out.println(order.getDatetime());
 		OrderController.newOrder(order);

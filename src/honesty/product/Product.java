@@ -6,7 +6,7 @@ public class Product {
 
 	private String productID, productName;
 	private BigDecimal buyPrice, sellPrice;
-	private int stockLevel, normalLevel;
+	private int stockLevel, normalLevel, quantity;
 	
 	public Product(String productID, 
 			String productName,
@@ -71,6 +71,14 @@ public class Product {
 
 	public void setProductID(String productID) {
 		this.productID = productID;
+	}
+
+	public int getQuantity() {
+		return quantity;
+	}
+
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	
 	

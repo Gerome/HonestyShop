@@ -13,6 +13,8 @@ import honesty.product.Product;
 public class OrderController {
 
 	public static void newOrder(Order order) throws SQLException {
+		
+		
 
 		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
 		String username = "Gerome";
@@ -31,12 +33,12 @@ public class OrderController {
 		
 		for(Product product : order.getItemList()) {
 			
-			stmt.executeUpdate("INSERT INTO mydb.OrderDetail (OrderID, ProductID, Quantity, LineTotal) VALUES(\"" 
+			stmt.executeUpdate("INSERT INTO mydb.OrderDetail (OrderID, ProductID, ProductName, Quantity, LineTotal) VALUES(\"" 
 			+ order.getOrderID() 
-			+ "\",\""  + product.getProductID()
-			+ "\"," 
-			+ 1
-			+ "," + (product.getSellPrice().setScale(2, RoundingMode.UP).doubleValue() * 1)  + 
+			+ "\",\"" + product.getProductID() 
+			+ "\",\"" + product.getProductName()
+			+ "\","   + product.getQuantity()
+			+ "," 	  + (product.getSellPrice().setScale(2, RoundingMode.UP).doubleValue() * product.getQuantity())  + 
 			");");
 			
 		}
