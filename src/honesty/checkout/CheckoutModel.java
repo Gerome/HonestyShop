@@ -52,7 +52,10 @@ public class CheckoutModel {
 			e.printStackTrace();
 
 		} catch (NullPointerException e) {
-			e.printStackTrace();
+			
+			System.out.println("This product is not in our Database");
+			//e.printStackTrace();
+			
 		}
 	}
 

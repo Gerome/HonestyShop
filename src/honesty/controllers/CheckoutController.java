@@ -30,8 +30,11 @@ public class CheckoutController extends ControlledView {
     
     @FXML
     void inputFieldOnAction(ActionEvent event) {
-    	System.out.println("Enter Pressed Clicked");	
-    	model.checkout(inputField.getText());
+    	System.out.println("Enter Pressed Clicked");
+    	if(!inputField.getText().equals(""))
+    		model.checkout(inputField.getText());
+    	else
+    		System.out.println("Please input a product number");
     	inputField.setText("");
     }
     
