@@ -9,12 +9,13 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 @SuppressWarnings("unused")
 public class ProductController {
 
+	private static String url = "jdbc:mysql://localhost:3306/?user=root";
+	private static String username = "Gerome";
+	private static String password = "Divcun4s";
 
 	public static void newProduct(Product product) throws SQLException {
 		
-		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
-		String username = "Gerome";
-		String password = "Divcun4s";
+	
 		
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
@@ -32,11 +33,7 @@ public class ProductController {
 	
 	public static ArrayList<Product> getAllProducts() throws ClassNotFoundException, SQLException {
 		
-		Product product = null;
-		
-		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
-		String username = "Gerome";
-		String password = "Divcun4s";
+		Product product = null;	
 		
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
@@ -49,8 +46,7 @@ public class ProductController {
 	    			rs.getString("ProductName"),
 	    			rs.getBigDecimal("BuyPrice"),
 	    			rs.getBigDecimal("SellPrice"),
-	    			rs.getInt("StockLevel"),
-	    			rs.getInt("NormalLevel"));
+	    			rs.getInt("StockLevel"));
 	        productList.add(product);
 	    }
 	    
@@ -63,10 +59,6 @@ public class ProductController {
 		
 		Product product = null;
 		
-		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
-		String username = "Gerome";
-		String password = "Divcun4s";
-		
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product WHERE ProductID = " + productID);
@@ -78,8 +70,7 @@ public class ProductController {
     			rs.getString("ProductName"),
     			rs.getBigDecimal("BuyPrice"),
     			rs.getBigDecimal("SellPrice"),
-    			rs.getInt("StockLevel"),
-    			rs.getInt("NormalLevel"));
+    			rs.getInt("StockLevel"));
 		
 		}
 		
@@ -88,51 +79,38 @@ public class ProductController {
 		conn.close();
 		
 		return product;
-			/*
-		if(productID.equals("25294651")) return productV;
-		else if(productID.equals("8410055150018")) return productW;
-		else return productP;
-	
-		
-		ResultSet rst = getResultSet("SELECT " + productID + " FROM mydb.Product");
-		
-		Product product = new Product(rst.getString("ProductID"), 
-    			rst.getString("ProductName"),
-    			rst.getBigDecimal("BuyPrice"),
-    			rst.getBigDecimal("SellPrice"),
-    			rst.getInt("StockLevel"),
-    			rst.getInt("NormalLevel"));
-		
-		return product;
-		*/
 		
 	}
 	
-	private static ResultSet getResultSet(String sql) throws SQLException {
+public static ArrayList<Product> getShoppingList() throws ClassNotFoundException, SQLException {
 		
-		String url = "jdbc:mysql://localhost:3306/?user=root";
-		String username = "Gerome";
-		String password = "Divcun4s";
-
-		System.out.println("Connecting database...");
-
-		try (Connection conn = DriverManager.getConnection(url, username, password)) {
-		    System.out.println("Database connected!");
-		    Statement stm;
-		    stm = conn.createStatement();
-		    ResultSet rst;
-		    rst = stm.executeQuery(sql);
-		    conn.close();
-		    stm.close();
-			return rst;
-		} catch (SQLException e) {
-		    throw new IllegalStateException("Cannot connect the database!", e);
-		}
+		Product product = null;	
 		
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product "
+				+ "WHERE StockLevel <= ReorderLevel");
 	    
-	   
+	    ArrayList<Product> shoppingList = new ArrayList<>();
+	    
+	    while (rs.next()) {
+	    	
+	    	
+	    		
+	    		product = new Product(rs.getString("ProductID"), 
+		    			rs.getString("ProductName"),
+		    			rs.getBigDecimal("BuyPrice"),
+		    			rs.getBigDecimal("SellPrice"),
+		    			rs.getInt("StockLevel"));
+		    	
+		        shoppingList.add(product);
+	    		
+	    	
+	        
+	    }
+	    
+	    return shoppingList;
 	}
-	
 	
 	
 }

@@ -12,8 +12,7 @@ public class Product {
 			String productName,
 			BigDecimal buyPrice, 
 			BigDecimal sellPrice,
-			int stockLevel, 
-			int normalLevel) {
+			int stockLevel) {
 		
 		this.setProductID(productID);
 		this.setProductName(productName);
