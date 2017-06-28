@@ -18,7 +18,6 @@ public class OrderController {
 
 	public static void newOrder(Order order) throws SQLException {
 		
-		
 
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
@@ -38,8 +37,8 @@ public class OrderController {
 			+ "\",\"" + product.getProductID() 
 			+ "\",\"" + product.getProductName()
 			+ "\","   + product.getQuantity()
-			+ "," 	  + (product.getSellPrice().setScale(2, RoundingMode.UP).doubleValue() * product.getQuantity())  + 
-			");");
+			+ "," 	  + (product.getSellPrice().setScale(2, RoundingMode.UP).doubleValue() * product.getQuantity()) 
+			+ ");");
 			
 			stmt.executeUpdate("UPDATE mydb.Product "
 					+ "SET StockLevel = StockLevel - " + product.getQuantity() 
@@ -51,7 +50,7 @@ public class OrderController {
 
 	public static ArrayList<Order> getAllOrders() throws ClassNotFoundException, SQLException {
 
-		ResultSet rst = getResultSet("SELECT * FROM tOrder");
+		ResultSet rst = getResultSet("SELECT * FROM Order");
 
 		ArrayList<Order> orderList = new ArrayList<>();
 
@@ -65,8 +64,9 @@ public class OrderController {
 	}
 
 	public static ArrayList<Order> getOrdersBetween(String from, String to, String accommodation) throws SQLException {
-		ResultSet rst = getResultSet("SELECT * FROM mydb.`Order`"
-			+ "WHERE (Date between \'" + from  + "\' AND \'" + to + "\');");
+		
+		ResultSet rst = getResultSet("SELECT * FROM mydb.Order"
+			+ " WHERE (Date between \'" + from  + "\' AND \'" + to + "\');");
 
 		ArrayList<Order> orderList = new ArrayList<>();
 

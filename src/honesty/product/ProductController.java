@@ -95,8 +95,6 @@ public static ArrayList<Product> getShoppingList() throws ClassNotFoundException
 	    
 	    while (rs.next()) {
 	    	
-	    	
-	    		
 	    		product = new Product(rs.getString("ProductID"), 
 		    			rs.getString("ProductName"),
 		    			rs.getBigDecimal("BuyPrice"),
@@ -104,8 +102,6 @@ public static ArrayList<Product> getShoppingList() throws ClassNotFoundException
 		    			rs.getInt("StockLevel"));
 		    	
 		        shoppingList.add(product);
-	    		
-	    	
 	        
 	    }
 	    

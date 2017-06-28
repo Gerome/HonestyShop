@@ -76,6 +76,9 @@ public class CheckoutModel {
 	}
 
 	public void finishCheckout() throws SQLException {
+		
+		if(basket.isEmpty()) return;
+		
 		order = new Order(sdf.format(new Date()) + accommodation, accommodation, sdf.format(new Date()), basketTotal.doubleValue(), "Gerome");
 		order.setItemList(basket);
 		System.out.println(order.getDatetime());
