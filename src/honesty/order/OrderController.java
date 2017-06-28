@@ -11,14 +11,14 @@ import honesty.product.Product;
 
 @SuppressWarnings("unused")
 public class OrderController {
+	
+	private static String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
+	private static String username = "Gerome";
+	private static String password = "Divcun4s";
 
 	public static void newOrder(Order order) throws SQLException {
 		
 		
-
-		String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
-		String username = "Gerome";
-		String password = "Divcun4s";
 
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
@@ -64,9 +64,20 @@ public class OrderController {
 		return orderList;
 	}
 
-	public static Order getOrder(String orderID) throws SQLException {
-		return null;
+	public static ArrayList<Order> getOrdersBetween(String from, String to, String accommodation) throws SQLException {
+		ResultSet rst = getResultSet("SELECT * FROM mydb.`Order`"
+			+ "WHERE (Date between \'" + from  + "\' AND \'" + to + "\');");
 
+		ArrayList<Order> orderList = new ArrayList<>();
+
+		while (rst.next()) {
+			Order order = new Order(rst.getString("OrderID"), rst.getString("AccommodationID"), rst.getString("DateTime"),
+					rst.getDouble("Total"), rst.getString("Name"));
+
+			orderList.add(order);
+		}
+		
+		return orderList;
 
 	}
 
