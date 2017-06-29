@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import honesty.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import login.LoginModel;
 
@@ -15,7 +16,7 @@ public class AuthController extends ControlledView {
     private TextField userNameField;
 
     @FXML
-    private TextField passwordField;
+    private PasswordField passwordField;
 
     @FXML
     void backClicked(ActionEvent event) {
