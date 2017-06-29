@@ -1,12 +1,16 @@
 package honesty.controllers;
 
+import java.sql.SQLException;
+
 import honesty.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import login.LoginModel;
 
 public class AuthController extends ControlledView {
 
+	
     @FXML
     private TextField userNameField;
 
@@ -20,9 +24,14 @@ public class AuthController extends ControlledView {
     }
 
     @FXML
-    void loginClicked(ActionEvent event) {
+    void loginClicked(ActionEvent event) throws SQLException {
     	System.out.println("Login Clicked");
-    	this.getControllerParent().setScreen(Main.adminScreenID);
+    	if(LoginModel.authenticateUser(userNameField.getText(), passwordField.getText())) {
+    		userNameField.setText("");
+    		passwordField.setText("");
+    		this.getControllerParent().setScreen(Main.adminScreenID);
+    		
+    	}
     }
 
 }
