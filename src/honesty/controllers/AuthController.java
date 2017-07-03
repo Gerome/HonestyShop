@@ -21,6 +21,8 @@ public class AuthController extends ControlledView {
     @FXML
     void backClicked(ActionEvent event) {
     	System.out.println("Back Clicked: " + getClass());
+    	userNameField.setText("");
+		passwordField.setText("");
     	this.getControllerParent().setScreen(Main.accommodationScreenID);
     }
 
