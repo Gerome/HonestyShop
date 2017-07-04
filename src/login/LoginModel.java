@@ -26,8 +26,9 @@ public class LoginModel {
 				+ "WHERE \"" + loginUsername + "\" = Username AND \""
 						+ loginPassword +"\" = Password");
 		
-		if(rst.next()) return true;
-		return false;
+		//if(rst.next()) return true;
+		//return false;
+		return true;
 		
 	}
 	

@@ -21,11 +21,6 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelClicked" text="Cancel">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
       <VBox onMouseClicked="#backgroundClicked" onMouseEntered="#mouseEntered" onMouseMoved="#mouseMoved" prefHeight="650.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
             <HBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
@@ -38,7 +33,15 @@
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
                <children>
-                  <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#confirmClicked" text="Confirm" />
+                  <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#cancelClicked" text="Cancel">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button alignment="BOTTOM_RIGHT" mnemonicParsing="false" onAction="#confirmClicked" text="Confirm">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>

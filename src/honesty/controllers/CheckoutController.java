@@ -13,6 +13,7 @@ public class CheckoutController extends ControlledView {
 	
 	@FXML
     private TextField inputField;
+	
 	private CheckoutModel model; 
 
     @FXML
@@ -45,7 +46,7 @@ public class CheckoutController extends ControlledView {
 
     @FXML
     void mouseMoved(MouseEvent event) {
-    	inputField.requestFocus();
+    	//inputField.requestFocus();
     	
     }
     

@@ -50,13 +50,13 @@ public class OrderController {
 
 	public static ArrayList<Order> getAllOrders() throws ClassNotFoundException, SQLException {
 
-		ResultSet rst = getResultSet("SELECT * FROM Order");
+		ResultSet rs = getResultSet("SELECT * FROM Order");
 
 		ArrayList<Order> orderList = new ArrayList<>();
 
-		while (rst.next()) {
-			Order order = new Order(rst.getString("OrderID"), rst.getString("AccommodationID"), rst.getString("DateTime"),
-					rst.getDouble("Total"), rst.getString("Name"));
+		while (rs.next()) {
+			Order order = new Order(rs.getString("OrderID"), rs.getString("AccommodationID"), rs.getString("DateTime"),
+					rs.getDouble("Total"), rs.getString("Name"));
 
 			orderList.add(order);
 		}
@@ -65,14 +65,35 @@ public class OrderController {
 
 	public static ArrayList<Order> getOrdersBetween(String from, String to, String accommodation) throws SQLException {
 		
-		ResultSet rst = getResultSet("SELECT * FROM mydb.Order"
+		
+		
+		ResultSet rs = getResultSet("SELECT * FROM mydb.Order"
 			+ " WHERE (Date between \'" + from  + "\' AND \'" + to + "\');");
 
 		ArrayList<Order> orderList = new ArrayList<>();
 
-		while (rst.next()) {
-			Order order = new Order(rst.getString("OrderID"), rst.getString("AccommodationID"), rst.getString("DateTime"),
-					rst.getDouble("Total"), rst.getString("Name"));
+		while (rs.next()) {
+			Order order = new Order(rs.getString("OrderID"), rs.getString("Accommodation"), rs.getString("Date"),
+					rs.getDouble("Total"), rs.getString("Name"));
+
+			orderList.add(order);
+		}
+		
+		return orderList;
+
+	}
+	
+public static ArrayList<Order> getOrderDetailsBetween(String from, String to, String accommodation) throws SQLException {
+		
+		
+		ResultSet rs = getResultSet("SELECT * FROM mydb.Order"
+			+ " WHERE (Date between \'" + from  + "\' AND \'" + to + "\');");
+
+		ArrayList<Order> orderList = new ArrayList<>();
+
+		while (rs.next()) {
+			Order order = new Order(rs.getString("OrderID"), rs.getString("Accommodation"), rs.getString("Date"),
+					rs.getDouble("Total"), rs.getString("Name"));
 
 			orderList.add(order);
 		}
@@ -82,12 +103,12 @@ public class OrderController {
 	}
 
 	private static ResultSet getResultSet(String sql) throws SQLException {
-		Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/?user=root");
-		Statement stm;
-		stm = conn.createStatement();
-		ResultSet rst;
-		rst = stm.executeQuery(sql);
-		return rst;
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+		stmt = conn.createStatement();
+		ResultSet rs;
+		rs = stmt.executeQuery(sql);
+		return rs;
 	}
 
 	public static String generateOrderID() {
