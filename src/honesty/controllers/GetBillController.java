@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import honesty.Main;
 import honesty.order.Order;
 import honesty.order.OrderController;
+import honesty.order.OrderDetail;
 import honesty.product.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -17,20 +18,24 @@ import javafx.scene.control.TableView;
 
 public class GetBillController extends ControlledView {
 	
-	 @FXML private TableView<Order> orderTable;
+	 @FXML private TableView<OrderDetail> orderTable;
 	 @FXML private DatePicker fromPicker;
 	 @FXML private DatePicker toPicker;
-	 @FXML private ComboBox accommodationPicker;
+	 @FXML private ComboBox<String> accommodationPicker;
 	 @FXML private Button goButton;
 	 
 	 
 	private ArrayList<Order> orderList = new ArrayList<>();
-	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-	 
+	private ArrayList<OrderDetail> orderDetailList = new ArrayList<>();
 
     @FXML
     void backClicked(ActionEvent event) {
     	System.out.println("Back Clicked: " + getClass());
+    	
+    	fromPicker.setValue(null);
+    	toPicker.setValue(null);
+    	accommodationPicker.getSelectionModel().clearSelection();
+    	
     	this.getControllerParent().setScreen(Main.adminScreenID);
     }
     
@@ -38,41 +43,23 @@ public class GetBillController extends ControlledView {
     void goClicked(ActionEvent event) throws SQLException {
     	System.out.println("Go Clicked: " + getClass());
     	
-    	//System.out.println(fromPicker.getValue() + " 00:00:00"+ toPicker.getValue() + " 00:00:00");
     	
+    	orderTable.getItems().clear();
+    	orderDetailList.clear();
     	
-    	orderList = OrderController.getOrdersBetween(fromPicker.getValue() + " 00:00:00", toPicker.getValue() + " 00:00:00", "temp");
+    	//orderTable.getItems().removeAll(orderDetailList);
     	
-    	orderTable.getItems().addAll(
-    			//new Order("0001", "temp","2017-06-06", 19.21, "Gerome")
-    			orderList
-    			);
+	
+    	orderList = OrderController.getOrdersBetween(fromPicker.getValue() + " 16:00:00", 
+    			toPicker.getValue() + " 10:00:00", 
+    			accommodationPicker.getValue().toString());
     	
-    	for(int i = 0; i < orderList.size(); i++) {
-    		
-    		
-        			//new Order("0001", "temp","2017-06-06", 19.21, "Gerome")
-        			
-        			
-    		System.out.println(orderList.get(i).getDatetime());
+    	for(Order order: orderList) {
+    		orderDetailList.addAll(OrderController.getDetailsFromOrder(order));
     	}
-    	/*
-    	for(int i = 0; i < orderList.size(); i++) {
-    		System.out.println(orderList.get(i).getDatetime());
-    		
-    		for(int j = 0; j < orderList.get(i).getItemList().size(); j++) {
-    			orderTable.getItems().add(orderList.get(i).getItemList().get(j));
-    		}
-    		
-    		
-    	}
-    	*/
-    	 
-         
-        
     	
     	
+    	orderTable.getItems().addAll(orderDetailList);
+    		
     }
-    
-
 }

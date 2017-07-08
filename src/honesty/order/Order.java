@@ -19,7 +19,7 @@ public class Order {
 		this.setName(name);
 	}
 
-	Double getTotal() {
+	public Double getTotal() {
 		return total;
 	}
 

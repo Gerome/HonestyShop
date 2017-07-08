@@ -1,8 +1,11 @@
 package honesty;
 
+import java.io.File;
+
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -39,6 +42,7 @@ public class Main extends Application {
 	public static String checkoutScreenFXML       = "/resources/FXML/CheckoutScreen.fxml";
 	public static String authenticationScreenID   = "auth";
 	public static String authenticationScreenFXML = "/resources/FXML/AuthenticationScreen.fxml";
+	public static String iconPath = "resources/Lanzarote-Logo.png";
 	
 	public static void main( String args[] ){
 		launch(args);
@@ -64,6 +68,11 @@ public class Main extends Application {
 		Group root = new Group();
 		root.getChildren().addAll(mainController);
 		Scene scene = new Scene(root);
+		
+		Image image = new Image(new File(iconPath).toURI().toString());
+		
+		
+		primaryStage.getIcons().add(image);
 		
 		primaryStage.setScene(scene);
 		primaryStage.show();	
