@@ -60,7 +60,10 @@ public class OrderController {
 	public static ArrayList<Order> getOrdersBetween(String from, String to, String accommodation) throws SQLException {
 
 		ResultSet rs = getResultSet(
-				"SELECT * FROM mydb.Order" + " WHERE (Date between \'" + from + "\' AND \'" + to + "\');");
+				"SELECT * FROM mydb.Order" + " WHERE (Date between \'" 
+						+ from + "\' AND \'" 
+						+ to + "\') AND \""
+						+ accommodation +"\" = Accommodation;");
 
 		ArrayList<Order> orderList = new ArrayList<>();
 

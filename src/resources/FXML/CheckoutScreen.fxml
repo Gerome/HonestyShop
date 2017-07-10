@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.cell.PropertyValueFactory ?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.CheckoutController">
    <children>
@@ -25,10 +26,21 @@
          <children>
             <VBox maxWidth="-Infinity" prefHeight="556.0" prefWidth="425.0">
                <children>
-                  <TableView maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="457.0" prefWidth="421.0">
+                  <TableView fx:id="productTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="457.0" prefWidth="421.0">
                     <columns>
-                      <TableColumn prefWidth="75.0" text="C1" />
-                      <TableColumn prefWidth="75.0" text="C2" />
+                    
+                      <TableColumn fx:id="ProductName" prefWidth="300" text="Product" >
+                       <cellValueFactory>
+                  			<PropertyValueFactory property="ProductName" />
+               			</cellValueFactory>
+                      </TableColumn>
+                      
+                      <TableColumn fx:id="SellPrice" minWidth="0.0" prefWidth="120" text="Price">
+                      	<cellValueFactory>
+                  			<PropertyValueFactory property="SellPrice" />
+               			</cellValueFactory>
+                      </TableColumn>
+                    
                     </columns>
                   </TableView>
                </children>

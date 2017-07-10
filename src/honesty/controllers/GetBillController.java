@@ -35,6 +35,7 @@ public class GetBillController extends ControlledView {
     	fromPicker.setValue(null);
     	toPicker.setValue(null);
     	accommodationPicker.getSelectionModel().clearSelection();
+    	orderTable.getItems().clear();
     	
     	this.getControllerParent().setScreen(Main.adminScreenID);
     }
@@ -47,12 +48,13 @@ public class GetBillController extends ControlledView {
     	orderTable.getItems().clear();
     	orderDetailList.clear();
     	
-    	//orderTable.getItems().removeAll(orderDetailList);
     	
 	
     	orderList = OrderController.getOrdersBetween(fromPicker.getValue() + " 16:00:00", 
     			toPicker.getValue() + " 10:00:00", 
     			accommodationPicker.getValue().toString());
+    	
+    	System.out.println(accommodationPicker.getValue().toString());
     	
     	for(Order order: orderList) {
     		orderDetailList.addAll(OrderController.getDetailsFromOrder(order));

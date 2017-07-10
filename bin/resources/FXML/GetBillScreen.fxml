@@ -58,29 +58,29 @@
          </children>
       </HBox>
       
-            <TableView fx:id="orderTable" layoutX="18.0" layoutY="148.0" prefHeight="394.0" prefWidth="651.0">
+      <TableView fx:id="orderTable" layoutX="18.0" layoutY="148.0" prefHeight="394.0" prefWidth="651.0">
         <columns>
-          <TableColumn fx:id="colProdName" prefWidth="93.12688064575195" text="Product">
+          <TableColumn fx:id="colProdName" prefWidth="100" text="Product">
           	<cellValueFactory>
                   <PropertyValueFactory property="ProductName" />
         	</cellValueFactory>
           </TableColumn>
-          <TableColumn fx:id="Quantity" prefWidth="121.93247985839844" text="Quantity">
+          <TableColumn fx:id="Quantity" prefWidth="125" text="Quantity">
           	<cellValueFactory>
                   <PropertyValueFactory property="Quantity" />
         	</cellValueFactory>
           </TableColumn>
-          <TableColumn fx:id="Total" prefWidth="117.50750732421875" text="Total">
+          <TableColumn fx:id="Total" prefWidth="125" text="Total">
           	<cellValueFactory>
                   <PropertyValueFactory property="LineTotal" />
         	</cellValueFactory>
           </TableColumn>
-            <TableColumn fx:id="Date" prefWidth="117.50750732421875" text="Date">
+            <TableColumn fx:id="Date" prefWidth="125" text="Date">
                <cellValueFactory>
                   <PropertyValueFactory property="Date" />
                </cellValueFactory>
             </TableColumn>
-            <TableColumn fx:id="Name" prefWidth="117.50750732421875" text="Name">
+            <TableColumn fx:id="Name" prefWidth="125" text="Name">
                <cellValueFactory>
                   <PropertyValueFactory property="Name" />
                </cellValueFactory>

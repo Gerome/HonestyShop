@@ -53,6 +53,8 @@ public class CheckoutModel {
 
 			System.out.println("Added " + currentProduct.getProductName() + " to basket");
 			System.out.println("Current total is: " + euCostFormat.format(basketTotal));
+			
+			
 
 		} catch (SQLException e) {
 
