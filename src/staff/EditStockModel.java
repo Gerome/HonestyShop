@@ -22,7 +22,7 @@ public class EditStockModel {
 		BigDecimal sellPrice, int stockLevel, int normalLevel) throws SQLException {  // 
 		
 		Product productToAdd = new Product(productID, productName, buyPrice, 
-				 sellPrice, stockLevel);
+				 sellPrice, stockLevel, normalLevel);
 		
 		ProductController.newProduct(productToAdd);
 	}

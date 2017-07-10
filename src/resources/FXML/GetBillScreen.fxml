@@ -19,75 +19,93 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="25.0" layoutY="5.0" mnemonicParsing="false" onAction="#backClicked" text="Back" AnchorPane.leftAnchor="25.0" AnchorPane.topAnchor="5.0">
+      <Button layoutX="25.0" layoutY="5.0" mnemonicParsing="false" onAction="#backClicked" text="Back" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="6.0">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <HBox layoutX="18.0" layoutY="101.0" prefHeight="94.0" prefWidth="672.0">
+      <VBox layoutX="18.0" layoutY="101.0" prefHeight="475.0" prefWidth="672.0">
          <children>
-            <DatePicker fx:id="fromPicker" />
-            <DatePicker fx:id="toPicker" />
-            <ComboBox fx:id="accommodationPicker" prefWidth="150.0" promptText="Accommodation">  
-         	   <items>
-      			  <FXCollections fx:factory="observableArrayList">
-      			  
-           			 <String fx:value="Barn" />
-           			 <String fx:value="Cabin" />
-           			 <String fx:value="Casita" />
-           			 <String fx:value="Farmhouse" />
-           			 <String fx:value="Garden Cottage" /> 	
-           			 <String fx:value="Lodge" />	 
-           			 <String fx:value="Tower" />       			 
-           			 <String fx:value="Villa" />
-           			 
-           			 <String fx:value="Beach Yurt" />
-           			 <String fx:value="Chico Yurt" />
-           			 <String fx:value="Chiquitita" />
-           			 <String fx:value="Eco Yurt" />
-           			 <String fx:value="Palm Yurt" />  
-           			 <String fx:value="Twin Yurt" />
-           			 <String fx:value="Royale Yurt" />
-           			 <String fx:value="Suite Yurt" />
-           			 
-           			 
-        			</FXCollections>
-    			</items>
-            </ComboBox>
-            <Button mnemonicParsing="false" onAction="#goClicked" prefHeight="27.0" prefWidth="96.0" text="Go" />
+            <HBox layoutX="18.0" layoutY="101.0" prefHeight="21.0" prefWidth="672.0">
+               <children>
+                  <DatePicker fx:id="fromPicker" />
+                  <DatePicker fx:id="toPicker" />
+                  <ComboBox fx:id="accommodationPicker" prefWidth="150.0" promptText="Accommodation">  
+               	   <items>
+            			  <FXCollections fx:factory="observableArrayList">
+            			  
+                       			 <String fx:value="Barn" />
+                 			 <String fx:value="Cabin" />
+                 			 <String fx:value="Casita" />
+                 			 <String fx:value="Farmhouse" />
+                 			 <String fx:value="Garden Cottage" /> 	
+                 			 <String fx:value="Lodge" />	 
+                 			 <String fx:value="Tower" />       			 
+                 			 <String fx:value="Villa" />
+                 			 
+                       			 <String fx:value="Beach Yurt" />
+                 			 <String fx:value="Chico Yurt" />
+                 			 <String fx:value="Chiquitita" />
+                 			 <String fx:value="Eco Yurt" />
+                 			 <String fx:value="Palm Yurt" />  
+                 			 <String fx:value="Twin Yurt" />
+                 			 <String fx:value="Royale Yurt" />
+                 			 <String fx:value="Suite Yurt" />
+                 			 
+                       			 
+              			</FXCollections>
+          			</items>
+                  </ComboBox>
+                  <Button mnemonicParsing="false" onAction="#goClicked" prefHeight="27.0" prefWidth="96.0" text="Go" />
+               </children>
+            </HBox>
+            
+            <TableView fx:id="orderTable" layoutX="18.0" layoutY="148.0" prefHeight="394.0" prefWidth="651.0">
+              <columns>
+                <TableColumn fx:id="colProdName" prefWidth="100" text="Product">
+                	<cellValueFactory>
+                        <PropertyValueFactory property="ProductName" />
+              	</cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="Quantity" prefWidth="125" text="Quantity">
+                	<cellValueFactory>
+                        <PropertyValueFactory property="Quantity" />
+              	</cellValueFactory>
+                </TableColumn>
+                <TableColumn fx:id="Total" prefWidth="125" text="Total">
+                	<cellValueFactory>
+                        <PropertyValueFactory property="LineTotal" />
+              	</cellValueFactory>
+                </TableColumn>
+                  <TableColumn fx:id="Date" prefWidth="175" text="Date">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="Date" />
+                     </cellValueFactory>
+                  </TableColumn>
+                  <TableColumn fx:id="Name" prefWidth="125" text="Name">
+                     <cellValueFactory>
+                        <PropertyValueFactory property="Name" />
+                     </cellValueFactory>
+                  </TableColumn>
+                
+              </columns>
+            </TableView>
+            <HBox>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total:             €" wrappingWidth="290.0908203125">
+                     <font>
+                        <Font size="41.0" />
+                     </font>
+                  </Text>
+                  <Text fx:id="totalTextBox" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" wrappingWidth="135.21875">
+                     <font>
+                        <Font size="41.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
          </children>
-      </HBox>
-      
-      <TableView fx:id="orderTable" layoutX="18.0" layoutY="148.0" prefHeight="394.0" prefWidth="651.0">
-        <columns>
-          <TableColumn fx:id="colProdName" prefWidth="100" text="Product">
-          	<cellValueFactory>
-                  <PropertyValueFactory property="ProductName" />
-        	</cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="Quantity" prefWidth="125" text="Quantity">
-          	<cellValueFactory>
-                  <PropertyValueFactory property="Quantity" />
-        	</cellValueFactory>
-          </TableColumn>
-          <TableColumn fx:id="Total" prefWidth="125" text="Total">
-          	<cellValueFactory>
-                  <PropertyValueFactory property="LineTotal" />
-        	</cellValueFactory>
-          </TableColumn>
-            <TableColumn fx:id="Date" prefWidth="125" text="Date">
-               <cellValueFactory>
-                  <PropertyValueFactory property="Date" />
-               </cellValueFactory>
-            </TableColumn>
-            <TableColumn fx:id="Name" prefWidth="125" text="Name">
-               <cellValueFactory>
-                  <PropertyValueFactory property="Name" />
-               </cellValueFactory>
-            </TableColumn>
-          
-        </columns>
-      </TableView>
+      </VBox>
       <Button layoutX="572.0" layoutY="582.0" mnemonicParsing="false" text="Print bill">
          <font>
             <Font size="17.0" />

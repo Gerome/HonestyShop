@@ -39,9 +39,9 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <VBox alignment="CENTER">
+                  <VBox alignment="CENTER" onMouseClicked="#barnClicked">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" onMouseClicked="#barnClicked" pickOnBounds="true">
+                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Barn.jpeg" />
                            </image>

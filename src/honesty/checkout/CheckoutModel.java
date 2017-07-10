@@ -46,26 +46,26 @@ public class CheckoutModel {
 				System.out.println("Added new product:" + currentProduct.getProductName());
 			}
 			
-			basketTotal = basketTotal.add(currentProduct.getSellPrice()).setScale(2, RoundingMode.UP);
+			setBasketTotal(getBasketTotal().add(currentProduct.getSellPrice()));
 			
 			
 			currentProduct.setStockLevel(currentProduct.getStockLevel() - 1);
 
 			System.out.println("Added " + currentProduct.getProductName() + " to basket");
-			System.out.println("Current total is: " + euCostFormat.format(basketTotal));
+			System.out.println("Current total is: " + euCostFormat.format(getBasketTotal()));
 			
 			
+		
 
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 
 		} catch (NullPointerException e) {
-			
-			System.out.println("This product is not in our Database");
-			//e.printStackTrace();
-			
+			e.printStackTrace();
+			System.out.println(this.getClass() +" This product is not in our Database");
 		}
+		
 	}
 
 	private boolean basketContainsProductWith(String barcode) {
@@ -81,11 +81,13 @@ public class CheckoutModel {
 		
 		if(basket.isEmpty()) return;
 		
-		order = new Order(sdf.format(new Date()) + accommodation, accommodation, sdf.format(new Date()), basketTotal.doubleValue(), "Gerome");
+		order = new Order(sdf.format(new Date()) + accommodation, accommodation, sdf.format(new Date()), getBasketTotal(), "Gerome");
 		order.setItemList(basket);
 		System.out.println(order.getDatetime());
 		OrderController.newOrder(order);
 	}
+	
+	
 
 	String getAccommodation() {
 		return accommodation;
@@ -93,6 +95,14 @@ public class CheckoutModel {
 
 	void setAccommodation(String accommodation) {
 		this.accommodation = accommodation;
+	}
+
+	public BigDecimal getBasketTotal() {
+		return basketTotal;
+	}
+
+	private void setBasketTotal(BigDecimal basketTotal) {
+		this.basketTotal = basketTotal;
 	}
 
 }

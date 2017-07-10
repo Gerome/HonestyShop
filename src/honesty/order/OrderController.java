@@ -3,6 +3,7 @@ package honesty.order;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.*;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
@@ -15,6 +16,8 @@ public class OrderController {
 	private static String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
 	private static String username = "Gerome";
 	private static String password = "Divcun4s";
+	
+	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 	public static void newOrder(Order order) throws SQLException {
 
@@ -50,7 +53,7 @@ public class OrderController {
 
 		while (rs.next()) {
 			Order order = new Order(rs.getString("OrderID"), rs.getString("AccommodationID"), rs.getString("DateTime"),
-					rs.getDouble("Total"), rs.getString("Name"));
+					rs.getBigDecimal("Total"), rs.getString("Name"));
 
 			orderList.add(order);
 		}
@@ -69,7 +72,7 @@ public class OrderController {
 
 		while (rs.next()) {
 			Order order = new Order(rs.getString("OrderID"), rs.getString("Accommodation"), rs.getString("Date"),
-					rs.getDouble("Total"), rs.getString("Name"));
+					rs.getBigDecimal("Total"), rs.getString("Name"));
 
 			orderList.add(order);
 		}

@@ -1,5 +1,6 @@
 package honesty.order;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 import honesty.product.Product;
@@ -7,11 +8,11 @@ import honesty.product.Product;
 public class Order {
 	
 	private String orderID, accommodation, name, datetime;
-	private Double total;
+	private BigDecimal total;
 	private ArrayList<Product> productList;
 
 	public Order(String orderID, String accommodation, 
-			String date, Double total, String name) {
+			String date, BigDecimal total, String name) {
 		this.setOrderID(orderID);
 		this.setAccommodation(accommodation);
 		this.setDatetime(date);
@@ -19,11 +20,11 @@ public class Order {
 		this.setName(name);
 	}
 
-	public Double getTotal() {
+	public BigDecimal getTotal() {
 		return total;
 	}
 
-	void setTotal(Double total) {
+	void setTotal(BigDecimal total) {
 		this.total = total;
 	}
 

@@ -14,99 +14,79 @@ public class ProductController {
 	private static String password = "Divcun4s";
 
 	public static void newProduct(Product product) throws SQLException {
-		
-	
-		
+
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
-		
-		stmt.executeUpdate("INSERT INTO mydb.Product (ProductID, ProductName, BuyPrice, SellPrice, StockLevel, NormalLevel) VALUES(" 
-		+ product.getProductID() 
-		+ ",\"" + product.getProductName() 
-		+ "\"," + product.getBuyPrice()
-		+ "," + product.getSellPrice()
-		+ "," + product.getStockLevel()
-		+ "," + product.getNormalLevel()
-		+ ");");
+
+		stmt.executeUpdate(
+				"INSERT INTO mydb.Product (ProductID, ProductName, BuyPrice, SellPrice, StockLevel, NormalLevel) VALUES("
+						+ product.getProductID() + ",\"" + product.getProductName() + "\"," + product.getBuyPrice()
+						+ "," + product.getSellPrice() + "," + product.getStockLevel() + "," + product.getNormalLevel()
+						+ ");");
 	}
-	
-	
+
 	public static ArrayList<Product> getAllProducts() throws ClassNotFoundException, SQLException {
-		
-		Product product = null;	
-		
+
+		Product product = null;
+
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product");
-	    
-	    ArrayList<Product> productList = new ArrayList<>();
-	    
-	    while (rs.next()) {
-	    	product = new Product(rs.getString("ProductID"), 
-	    			rs.getString("ProductName"),
-	    			rs.getBigDecimal("BuyPrice"),
-	    			rs.getBigDecimal("SellPrice"),
-	    			rs.getInt("StockLevel"));
-	        productList.add(product);
-	    }
-	    
-	    return productList;
+
+		ArrayList<Product> productList = new ArrayList<>();
+
+		while (rs.next()) {
+			product = new Product(rs.getString("ProductID"), rs.getString("ProductName"), rs.getBigDecimal("BuyPrice"),
+					rs.getBigDecimal("SellPrice"), rs.getInt("StockLevel"), rs.getInt("NormalLevel"));
+			productList.add(product);
+		}
+
+		return productList;
 	}
 
-	
-	
 	public static Product getProduct(String productID) throws SQLException {
-		
+
 		Product product = null;
-		
+
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
 		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product WHERE ProductID = " + productID);
-		
-		if(rs.next()) {
-			
-			product = new Product(
-				rs.getString("ProductID"), 
-    			rs.getString("ProductName"),
-    			rs.getBigDecimal("BuyPrice"),
-    			rs.getBigDecimal("SellPrice"),
-    			rs.getInt("StockLevel"));
-		
+
+		if (rs.next()) {
+
+			product = new Product(rs.getString("ProductID"), rs.getString("ProductName"), rs.getBigDecimal("BuyPrice"),
+					rs.getBigDecimal("SellPrice"), rs.getInt("StockLevel"), rs.getInt("NormalLevel"));
+
 		}
-		
+
 		rs.close();
 		stmt.close();
 		conn.close();
-		
+
 		return product;
-		
+
 	}
-	
-public static ArrayList<Product> getShoppingList() throws ClassNotFoundException, SQLException {
-		
-		Product product = null;	
-		
+
+	public static ArrayList<Product> getShoppingList() throws ClassNotFoundException, SQLException {
+
+		Product product = null;
+
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product "
-				+ "WHERE StockLevel <= ReorderLevel");
-	    
-	    ArrayList<Product> shoppingList = new ArrayList<>();
-	    
-	    while (rs.next()) {
-	    	
-	    		product = new Product(rs.getString("ProductID"), 
-		    			rs.getString("ProductName"),
-		    			rs.getBigDecimal("BuyPrice"),
-		    			rs.getBigDecimal("SellPrice"),
-		    			rs.getInt("StockLevel"));
-		    	
-		        shoppingList.add(product);
-	        
-	    }
-	    
-	    return shoppingList;
+		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product " + "WHERE StockLevel < NormalLevel");
+
+		ArrayList<Product> shoppingList = new ArrayList<>();
+
+		while (rs.next()) {
+
+			product = new Product(rs.getString("ProductID"), rs.getString("ProductName"), rs.getBigDecimal("BuyPrice"),
+					rs.getBigDecimal("SellPrice"), rs.getInt("StockLevel"), rs.getInt("NormalLevel"));
+
+			shoppingList.add(product);
+
+		}
+
+		return shoppingList;
 	}
-	
-	
+
 }

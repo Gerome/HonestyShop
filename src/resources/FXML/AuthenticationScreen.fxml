@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -10,14 +15,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.AuthController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.AuthController">
    <children>
       <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" text="Authentication" textAlignment="CENTER" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backClicked" text="Back">
+      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backClicked" text="Back" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="6.0">
          <font>
             <Font size="18.0" />
          </font>

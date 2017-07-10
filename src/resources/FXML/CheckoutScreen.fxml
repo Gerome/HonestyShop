@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.cell.*?>
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
@@ -26,10 +27,10 @@
          <children>
             <VBox maxWidth="-Infinity" prefHeight="556.0" prefWidth="425.0">
                <children>
-                  <TableView fx:id="productTable" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="457.0" prefWidth="421.0">
+                  <TableView fx:id="productTable" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="457.0" prefWidth="421.0">
                     <columns>
                     
-                      <TableColumn fx:id="ProductName" prefWidth="300" text="Product" >
+                      <TableColumn fx:id="ProductName" prefWidth="300" text="Product">
                        <cellValueFactory>
                   			<PropertyValueFactory property="ProductName" />
                			</cellValueFactory>
@@ -43,6 +44,29 @@
                     
                     </columns>
                   </TableView>
+                  <HBox>
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total:             €" wrappingWidth="290.0908203125">
+                           <font>
+                              <Font size="41.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Text fx:id="totalTextBox" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" wrappingWidth="135.21875">
+                           <font>
+                              <Font size="41.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                     </children>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </HBox>
                </children>
             </VBox>
             <VBox alignment="BOTTOM_CENTER" prefHeight="556.0" prefWidth="220.0">
