@@ -13,6 +13,9 @@ import honesty.order.Order;
 import honesty.order.OrderController;
 import honesty.product.Product;
 import honesty.product.ProductController;
+import javafx.animation.PauseTransition;
+import javafx.stage.Stage;
+import javafx.util.Duration;
 
 public class CheckoutModel {
 
@@ -31,18 +34,20 @@ public class CheckoutModel {
 		currentProduct = null;
 	}
 
-	public void checkout(String barcode) {
+	public boolean checkout(String barcode) {
 
 		try {
+			
+			currentProduct = ProductController.getProduct(barcode);
 
 			if (!basket.isEmpty() && basketContainsProductWith(barcode)) {
+				currentProduct = getProductFromBasket(barcode);
 				currentProduct.setQuantity(currentProduct.getQuantity() + 1);
 				System.out.println("Increased quantity of " + currentProduct.getProductName() + "\nCurrent quantity is:"
 						+ currentProduct.getQuantity());
 			} else {
-				currentProduct = ProductController.getProduct(barcode);
-				basket.add(currentProduct);
 				currentProduct.setQuantity(1);
+				basket.add(currentProduct);
 				System.out.println("Added new product:" + currentProduct.getProductName());
 			}
 
@@ -52,16 +57,44 @@ public class CheckoutModel {
 
 			System.out.println("Added " + currentProduct.getProductName() + " to basket");
 			System.out.println("Current total is: " + euCostFormat.format(getBasketTotal()));
-
+			return true;
+			
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 
-		} catch (NullPointerException e) {
-			e.printStackTrace();
+			return false;
+		} catch (NullPointerException ex) {
+			ex.printStackTrace();
 			System.out.println(this.getClass() + " This product is not in our Database");
+			
+			
+			/*
+			Stage popup = new Stage();
+			
+			// configure UI for popup etc...
+
+			// hide popup after 3 seconds:
+			PauseTransition delay = new PauseTransition(Duration.seconds(3));
+			delay.setOnFinished(e ->popup.hide());
+
+			popup.show();
+			delay.play();
+			*/
+			
+			
+			return false;
 		}
 
+	}
+
+	private Product getProductFromBasket(String barcode) {
+		for (Product product : basket) {
+			if (product.getProductID().equals(barcode)) {
+				return product;
+			}
+		}
+		return null;
 	}
 
 	private boolean basketContainsProductWith(String barcode) {
