@@ -28,34 +28,30 @@ public class CheckoutModel {
 		setAccommodation(accommodation);
 		euCostFormat.setMinimumFractionDigits(2);
 		euCostFormat.setMaximumFractionDigits(2);
-		//basketTotal = basketTotal.setScale(2, RoundingMode.UP);
 		currentProduct = null;
 	}
 
 	public void checkout(String barcode) {
 
 		try {
-			
-			if(!basket.isEmpty() && basketContainsProductWith(barcode)){
+
+			if (!basket.isEmpty() && basketContainsProductWith(barcode)) {
 				currentProduct.setQuantity(currentProduct.getQuantity() + 1);
-				System.out.println("Increased quantity of " + currentProduct.getProductName() + "\nCurrent quantity is:" + currentProduct.getQuantity());
+				System.out.println("Increased quantity of " + currentProduct.getProductName() + "\nCurrent quantity is:"
+						+ currentProduct.getQuantity());
 			} else {
 				currentProduct = ProductController.getProduct(barcode);
 				basket.add(currentProduct);
 				currentProduct.setQuantity(1);
 				System.out.println("Added new product:" + currentProduct.getProductName());
 			}
-			
+
 			setBasketTotal(getBasketTotal().add(currentProduct.getSellPrice()));
-			
-			
+
 			currentProduct.setStockLevel(currentProduct.getStockLevel() - 1);
 
 			System.out.println("Added " + currentProduct.getProductName() + " to basket");
 			System.out.println("Current total is: " + euCostFormat.format(getBasketTotal()));
-			
-			
-		
 
 		} catch (SQLException e) {
 
@@ -63,31 +59,46 @@ public class CheckoutModel {
 
 		} catch (NullPointerException e) {
 			e.printStackTrace();
-			System.out.println(this.getClass() +" This product is not in our Database");
+			System.out.println(this.getClass() + " This product is not in our Database");
 		}
-		
+
 	}
 
 	private boolean basketContainsProductWith(String barcode) {
-		for(Product product : basket){
-			if (product.getProductID().equals(barcode)){
+		for (Product product : basket) {
+			if (product.getProductID().equals(barcode)) {
 				return true;
 			}
-		} 
+		}
 		return false;
 	}
 
 	public void finishCheckout() throws SQLException {
-		
-		if(basket.isEmpty()) return;
-		
-		order = new Order(sdf.format(new Date()) + accommodation, accommodation, sdf.format(new Date()), getBasketTotal(), "Gerome");
+
+		if (basket.isEmpty())
+			return;
+
+		order = new Order(sdf.format(new Date()) + accommodation, accommodation, sdf.format(new Date()),
+				getBasketTotal(), "Gerome");
 		order.setItemList(basket);
 		System.out.println(order.getDatetime());
 		OrderController.newOrder(order);
 	}
-	
-	
+
+	public void removeProduct() {
+
+		if (!basket.isEmpty()) {
+			Product product = basket.get(basket.size() - 1);
+
+			if (product.getQuantity() <= 1) {
+				basket.remove(product);
+			} else {
+				product.setQuantity(product.getQuantity() - 1);
+			}
+
+			setBasketTotal(getBasketTotal().subtract(currentProduct.getSellPrice()));
+		}
+	}
 
 	String getAccommodation() {
 		return accommodation;

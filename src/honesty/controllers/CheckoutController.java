@@ -73,6 +73,14 @@ public class CheckoutController extends ControlledView {
     	inputField.requestFocus();
     	
     }
+    
+    @FXML
+    void clearItem(ActionEvent event) {
+    	model.removeProduct();
+    	productTable.getItems().remove(productTable.getItems().size() - 1);
+    	totalTextBox.setText( model.getBasketTotal().toString() );
+    	
+    }
   
     public void setCheckoutModel(CheckoutModel model){
     	this.model = model;

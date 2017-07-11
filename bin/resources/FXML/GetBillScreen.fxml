@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -24,11 +25,21 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <VBox layoutX="18.0" layoutY="101.0" prefHeight="475.0" prefWidth="672.0">
+      <VBox layoutX="18.0" layoutY="90.0" prefHeight="475.0" prefWidth="672.0">
          <children>
-            <HBox layoutX="18.0" layoutY="101.0" prefHeight="21.0" prefWidth="672.0">
+            <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="101.0" prefHeight="21.0" prefWidth="672.0">
                <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="From" wrappingWidth="46.83549880981445">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
                   <DatePicker fx:id="fromPicker" />
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   To ">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Text>
                   <DatePicker fx:id="toPicker" />
                   <ComboBox fx:id="accommodationPicker" prefWidth="150.0" promptText="Accommodation">  
                	   <items>
@@ -50,14 +61,49 @@
                  			 <String fx:value="Palm Yurt" />  
                  			 <String fx:value="Twin Yurt" />
                  			 <String fx:value="Royale Yurt" />
-                 			 <String fx:value="Suite Yurt" />
+                 			 <String fx:value="Yurt Suite" />
                  			 
                        			 
               			</FXCollections>
           			</items>
+                     <HBox.margin>
+                        <Insets left="14.0" />
+                     </HBox.margin>
                   </ComboBox>
-                  <Button mnemonicParsing="false" onAction="#goClicked" prefHeight="27.0" prefWidth="96.0" text="Go" />
                </children>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <TextField fx:id="fromHour" prefHeight="27.0" prefWidth="58.0" text="16">
+                     <HBox.margin>
+                        <Insets left="37.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="fromMin" prefHeight="27.0" prefWidth="58.0" text="00" />
+                  <TextField fx:id="toHour" prefHeight="27.0" prefWidth="58.0" text="10">
+                     <HBox.margin>
+                        <Insets left="114.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <TextField fx:id="toMin" prefHeight="27.0" prefWidth="58.0" text="00" />
+                  <Button mnemonicParsing="false" onAction="#goClicked" prefHeight="27.0" prefWidth="96.0" text="Go">
+                     <HBox.margin>
+                        <Insets left="136.0" />
+                     </HBox.margin></Button>
+               </children>
+               <padding>
+                  <Insets left="10.0" top="10.0" />
+               </padding>
             </HBox>
             
             <TableView fx:id="orderTable" layoutX="18.0" layoutY="148.0" prefHeight="394.0" prefWidth="651.0">

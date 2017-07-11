@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
 public class GetBillController extends ControlledView {
@@ -26,6 +27,12 @@ public class GetBillController extends ControlledView {
 	 @FXML private ComboBox<String> accommodationPicker;
 	 @FXML private Button goButton;
 	 @FXML private Text totalTextBox; 
+	 
+	 @FXML private TextField fromHour; 
+	 @FXML private TextField fromMin; 
+	 @FXML private TextField toHour; 
+	 @FXML private TextField toMin; 
+	 
 	
 	private BigDecimal billTotal = new BigDecimal("0.00");
 	private ArrayList<Order> orderList = new ArrayList<>();
@@ -35,14 +42,21 @@ public class GetBillController extends ControlledView {
     void backClicked(ActionEvent event) {
     	System.out.println("Back Clicked: " + getClass());
     	
-    	fromPicker.setValue(null);
+    	resetScreen();
+    	
+    	this.getControllerParent().setScreen(Main.adminScreenID);
+    }
+
+	public void resetScreen() {
+		fromPicker.setValue(null);
     	toPicker.setValue(null);
     	accommodationPicker.getSelectionModel().clearSelection();
     	orderTable.getItems().clear();
     	totalTextBox.setText("0.00");
     	
-    	this.getControllerParent().setScreen(Main.adminScreenID);
-    }
+    	fromHour.setText("16"); fromMin.setText("00");
+    	toHour.setText("10");   toMin.setText("00");
+	}
     
     @FXML
     void goClicked(ActionEvent event) throws SQLException {
@@ -54,8 +68,8 @@ public class GetBillController extends ControlledView {
     	billTotal = new BigDecimal("0.00");
     	
 	
-    	orderList = OrderController.getOrdersBetween(fromPicker.getValue() + " 16:00:00", 
-    			toPicker.getValue() + " 10:00:00", 
+    	orderList = OrderController.getOrdersBetween(fromPicker.getValue() + " " + fromHour.getText() + ":" + fromMin.getText() + ":00", 
+    			toPicker.getValue() + " " + toHour.getText() + ":" + toMin.getText() + ":00", 
     			accommodationPicker.getValue().toString());
     	
     	System.out.println(accommodationPicker.getValue().toString());

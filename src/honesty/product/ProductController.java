@@ -67,13 +67,13 @@ public class ProductController {
 
 	}
 
-	public static ArrayList<Product> getShoppingList() throws ClassNotFoundException, SQLException {
+	public static ArrayList<Product> getMercShoppingList() throws ClassNotFoundException, SQLException {
 
 		Product product = null;
 
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
-		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product " + "WHERE StockLevel < NormalLevel");
+		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product " + "WHERE StockLevel < NormalLevel AND PurchasePlace = \"Mercadona\"");
 
 		ArrayList<Product> shoppingList = new ArrayList<>();
 
@@ -89,4 +89,26 @@ public class ProductController {
 		return shoppingList;
 	}
 
+	
+	public static ArrayList<Product> getGmShoppingList() throws ClassNotFoundException, SQLException {
+
+		Product product = null;
+
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.Product " + "WHERE StockLevel < NormalLevel AND PurchasePlace = \"GM\"");
+
+		ArrayList<Product> shoppingList = new ArrayList<>();
+
+		while (rs.next()) {
+
+			product = new Product(rs.getString("ProductID"), rs.getString("ProductName"), rs.getBigDecimal("BuyPrice"),
+					rs.getBigDecimal("SellPrice"), rs.getInt("StockLevel"), rs.getInt("NormalLevel"));
+
+			shoppingList.add(product);
+
+		}
+
+		return shoppingList;
+	}
 }

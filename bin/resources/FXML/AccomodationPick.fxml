@@ -57,7 +57,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="1">
+                  <VBox alignment="CENTER" onMouseClicked="#beachYurtClicked" GridPane.columnIndex="1">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -75,7 +75,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="2">
+                  <VBox alignment="CENTER" onMouseClicked="#cabinClicked" GridPane.columnIndex="2">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -93,7 +93,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="3">
+                  <VBox alignment="CENTER" onMouseClicked="#casitaClicked" GridPane.columnIndex="3">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -111,7 +111,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.rowIndex="1">
+                  <VBox alignment="CENTER" onMouseClicked="#chicoYurtClicked" GridPane.rowIndex="1">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -129,7 +129,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <VBox alignment="CENTER" onMouseClicked="#chiquititaClicked" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -147,7 +147,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <VBox alignment="CENTER" onMouseClicked="#farmhouseClicked" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -165,7 +165,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                  <VBox alignment="CENTER" onMouseClicked="#gardenCottageClicked" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -183,7 +183,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.rowIndex="2">
+                  <VBox alignment="CENTER" onMouseClicked="#lodgeClicked" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -201,7 +201,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <VBox alignment="CENTER" onMouseClicked="#palmYurtClicked" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -219,7 +219,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <VBox alignment="CENTER" onMouseClicked="#royaleClicked" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -237,7 +237,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <VBox alignment="CENTER" onMouseClicked="#yurtSuiteClicked" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -246,7 +246,7 @@
                         </ImageView>
                         <AnchorPane VBox.vgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Suite" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Yurt Suite" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Verdana" size="18.0" />
                                  </font>
@@ -255,7 +255,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.rowIndex="3">
+                  <VBox alignment="CENTER" onMouseClicked="#towerClicked" GridPane.rowIndex="3">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -273,7 +273,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  <VBox alignment="CENTER" onMouseClicked="#twinYurtClicked" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -291,7 +291,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                  <VBox alignment="CENTER" onMouseClicked="#villaClicked" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -309,7 +309,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <VBox alignment="CENTER" onMouseClicked="#yurtClicked" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>

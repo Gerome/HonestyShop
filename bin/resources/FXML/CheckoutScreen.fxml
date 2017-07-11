@@ -67,8 +67,10 @@
                         <Insets />
                      </VBox.margin>
                   </HBox>
+                  <Button fx:id="clearItemButton" focusTraversable="false" mnemonicParsing="false" onAction="#clearItem" prefHeight="31.0" prefWidth="94.0" text="Clear Item" />
                </children>
             </VBox>
+            <Separator orientation="VERTICAL" prefHeight="200.0" />
             <VBox alignment="BOTTOM_CENTER" prefHeight="556.0" prefWidth="220.0">
                <children>
                   <TextField fx:id="inputField" alignment="TOP_CENTER" maxWidth="-Infinity" onAction="#inputFieldOnAction" prefHeight="27.0" prefWidth="193.0" />

@@ -11,7 +11,8 @@ import javafx.fxml.FXML;
 
 public class AdminController extends ControlledView {
 	
-	private static ArrayList<Product> shoppingList;
+	private static ArrayList<Product> mercShoppingList;
+	private static ArrayList<Product> gmShoppingList;
 
     @FXML
     void backClicked(ActionEvent event) {
@@ -35,11 +36,23 @@ public class AdminController extends ControlledView {
     void printListClicked(ActionEvent event) throws ClassNotFoundException, SQLException {
     	System.out.println("Print List Clicked");
     	
-    	shoppingList = ProductController.getShoppingList();
     	
-    	for(int i = 0; i < shoppingList.size(); i++) {
-    		System.out.print(shoppingList.get(i).getProductName() + ": ");
-    		System.out.println(shoppingList.get(i).getNormalLevel() - shoppingList.get(i).getStockLevel());
+    	mercShoppingList = ProductController.getMercShoppingList();
+    	gmShoppingList = ProductController.getGmShoppingList();
+    	
+    	
+    	for(int i = 0; i < mercShoppingList.size(); i++) {
+    		
+    			
+    		System.out.print(mercShoppingList.get(i).getProductName() + ": ");
+    		System.out.println(mercShoppingList.get(i).getNormalLevel() - mercShoppingList.get(i).getStockLevel());
+    	}
+    	
+    	for(int i = 0; i < gmShoppingList.size(); i++) {
+    		
+			
+    		System.out.print(gmShoppingList.get(i).getProductName() + ": ");
+    		System.out.println(gmShoppingList.get(i).getNormalLevel() - gmShoppingList.get(i).getStockLevel());
     	}
     	
     }
