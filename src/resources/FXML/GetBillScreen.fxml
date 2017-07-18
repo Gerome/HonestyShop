@@ -13,7 +13,7 @@
 <?import javafx.collections.*?>
 <?import fxmltableview.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.GetBillController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.GetBillController">
    <children>
       <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" text="Get Bill" textAlignment="CENTER" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
@@ -25,7 +25,7 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <VBox layoutX="18.0" layoutY="90.0" prefHeight="475.0" prefWidth="672.0">
+      <VBox layoutX="18.0" layoutY="90.0" prefHeight="625.0" prefWidth="1233.0">
          <children>
             <HBox alignment="CENTER_LEFT" layoutX="18.0" layoutY="101.0" prefHeight="21.0" prefWidth="672.0">
                <children>
@@ -41,7 +41,7 @@
                      </font>
                   </Text>
                   <DatePicker fx:id="toPicker" />
-                  <ComboBox fx:id="accommodationPicker" prefWidth="150.0" promptText="Accommodation">  
+                  <ComboBox fx:id="accommodationPicker" prefWidth="150.0" promptText="Accommodation" visibleRowCount="12">  
                	   <items>
             			  <FXCollections fx:factory="observableArrayList">
             			  
@@ -78,28 +78,43 @@
                      <HBox.margin>
                         <Insets left="37.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </TextField>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="fromMin" prefHeight="27.0" prefWidth="58.0" text="00" />
+                  <TextField fx:id="fromMin" prefHeight="27.0" prefWidth="58.0" text="00">
+                     <font>
+                        <Font size="17.0" />
+                     </font></TextField>
                   <TextField fx:id="toHour" prefHeight="27.0" prefWidth="58.0" text="10">
                      <HBox.margin>
                         <Insets left="114.0" />
                      </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font>
                   </TextField>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text=":">
                      <font>
                         <Font size="22.0" />
                      </font>
                   </Text>
-                  <TextField fx:id="toMin" prefHeight="27.0" prefWidth="58.0" text="00" />
-                  <Button mnemonicParsing="false" onAction="#goClicked" prefHeight="27.0" prefWidth="96.0" text="Go">
+                  <TextField fx:id="toMin" prefHeight="27.0" prefWidth="58.0" text="00">
+                     <font>
+                        <Font size="17.0" />
+                     </font></TextField>
+                  <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#goClicked" prefHeight="27.0" prefWidth="96.0" text="Go">
                      <HBox.margin>
                         <Insets left="136.0" />
-                     </HBox.margin></Button>
+                     </HBox.margin>
+                     <font>
+                        <Font size="17.0" />
+                     </font></Button>
                </children>
                <padding>
                   <Insets left="10.0" top="10.0" />
@@ -108,27 +123,27 @@
             
             <TableView fx:id="orderTable" layoutX="18.0" layoutY="148.0" prefHeight="394.0" prefWidth="651.0">
               <columns>
-                <TableColumn fx:id="colProdName" prefWidth="100" text="Product">
+                <TableColumn fx:id="colProdName" prefWidth="200.0" text="Product">
                 	<cellValueFactory>
                         <PropertyValueFactory property="ProductName" />
               	</cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="Quantity" prefWidth="125" text="Quantity">
+                <TableColumn fx:id="Quantity" prefWidth="200.0" text="Quantity">
                 	<cellValueFactory>
                         <PropertyValueFactory property="Quantity" />
               	</cellValueFactory>
                 </TableColumn>
-                <TableColumn fx:id="Total" prefWidth="125" text="Total">
+                <TableColumn fx:id="Total" prefWidth="200.0" text="Total">
                 	<cellValueFactory>
                         <PropertyValueFactory property="LineTotal" />
               	</cellValueFactory>
                 </TableColumn>
-                  <TableColumn fx:id="Date" prefWidth="175" text="Date">
+                  <TableColumn fx:id="Date" prefWidth="260.0" text="Date">
                      <cellValueFactory>
                         <PropertyValueFactory property="Date" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="Name" prefWidth="125" text="Name">
+                  <TableColumn fx:id="Name" prefWidth="150.0" text="Name">
                      <cellValueFactory>
                         <PropertyValueFactory property="Name" />
                      </cellValueFactory>
@@ -150,13 +165,13 @@
                   </Text>
                </children>
             </HBox>
+            <Button fx:id="printBillButton" disable="true" mnemonicParsing="false" onAction="#printBillClicked" text="Print bill">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
-      <Button layoutX="572.0" layoutY="582.0" mnemonicParsing="false" text="Print bill">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
       
    </children>
 </AnchorPane>

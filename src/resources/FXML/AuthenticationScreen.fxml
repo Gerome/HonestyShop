@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.AuthController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.AuthController">
    <children>
       <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" text="Authentication" textAlignment="CENTER" underline="true" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <font>
@@ -31,7 +31,10 @@
          <children>
             <HBox alignment="TOP_CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="200.0" spacing="30.0" VBox.vgrow="NEVER">
                <children>
-                  <TextField fx:id="userNameField" maxWidth="300.0" promptText="Username" HBox.hgrow="ALWAYS" />
+                  <TextField fx:id="userNameField" maxWidth="300.0" promptText="Username" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="20.0" />
+                     </font></TextField>
                </children>
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
@@ -39,7 +42,10 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <PasswordField fx:id="passwordField" maxWidth="300.0" promptText="Password" HBox.hgrow="ALWAYS" />
+                  <PasswordField fx:id="passwordField" maxWidth="300.0" promptText="Password" HBox.hgrow="ALWAYS">
+                     <font>
+                        <Font size="20.0" />
+                     </font></PasswordField>
                </children>
                <VBox.margin>
                   <Insets left="20.0" right="20.0" />
@@ -47,7 +53,10 @@
             </HBox>
             <HBox alignment="TOP_CENTER" prefHeight="30.0" prefWidth="200.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#loginClicked" text="Login" />
+                  <Button mnemonicParsing="false" onAction="#loginClicked" text="Login">
+                     <font>
+                        <Font size="20.0" />
+                     </font></Button>
                </children>
             </HBox>
          </children>
