@@ -14,6 +14,9 @@ import honesty.order.OrderController;
 import honesty.product.Product;
 import honesty.product.ProductController;
 import javafx.animation.PauseTransition;
+import javafx.scene.Group;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -68,24 +71,39 @@ public class CheckoutModel {
 			ex.printStackTrace();
 			System.out.println(this.getClass() + " This product is not in our Database");
 			
-			
-			/*
-			Stage popup = new Stage();
-			
-			// configure UI for popup etc...
-
-			// hide popup after 3 seconds:
-			PauseTransition delay = new PauseTransition(Duration.seconds(3));
-			delay.setOnFinished(e ->popup.hide());
-
-			popup.show();
-			delay.play();
-			*/
-			
+			displayPopup();
 			
 			return false;
 		}
 
+	}
+
+	public void displayPopup() {
+		Stage popup = new Stage();
+		
+		Group rootGroup = new Group();
+		
+		Scene scene = new Scene(rootGroup);
+		
+		popup.setScene(scene);
+		
+		// configure UI for popup etc...
+
+		// hide popup after 3 seconds:
+		PauseTransition delay = new PauseTransition(Duration.seconds(3));
+		delay.setOnFinished(e ->popup.hide());
+
+		
+		popup.setX(300);
+		popup.setY(300);
+		
+		popup.setFullScreen(false);
+		
+		
+		
+		
+		popup.show();
+		delay.play();
 	}
 
 	private Product getProductFromBasket(String barcode) {
@@ -116,6 +134,9 @@ public class CheckoutModel {
 		order.setItemList(basket);
 		System.out.println(order.getDatetime());
 		OrderController.newOrder(order);
+		
+		displayPopup();
+		
 	}
 
 	public void removeProduct() {

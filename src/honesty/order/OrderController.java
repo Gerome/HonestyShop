@@ -13,9 +13,9 @@ import honesty.product.Product;
 @SuppressWarnings("unused")
 public class OrderController {
 
-	private static String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
+	private static String url = "jdbc:mysql://172.16.1.78:3306/?user=root&useSSL=false";
 	private static String username = "Gerome";
-	private static String password = "Divcun4s";
+	private static String password = "help";
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 

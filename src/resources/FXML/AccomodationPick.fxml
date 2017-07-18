@@ -224,7 +224,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" onMouseClicked="#royaleClicked" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <VBox alignment="CENTER" onMouseClicked="#yurtRoyaleClicked" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -233,7 +233,7 @@
                         </ImageView>
                         <AnchorPane VBox.vgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Royale" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Yurt Royale" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Verdana" size="18.0" />
                                  </font>

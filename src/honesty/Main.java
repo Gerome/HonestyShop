@@ -71,7 +71,7 @@ public class Main extends Application {
 		
 		Image image = new Image(new File(iconPath).toURI().toString());
 		
-		
+		primaryStage.setFullScreen(true);
 		primaryStage.getIcons().add(image);
 		
 		primaryStage.setScene(scene);

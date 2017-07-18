@@ -7,6 +7,12 @@ import javafx.fxml.FXML;
 import javafx.scene.input.MouseEvent;
 
 public class AccommodationsController extends ControlledView {
+	
+	@FXML
+    void getBillClicked(ActionEvent event) {
+    	System.out.println("Get Bill Clicked");
+    	this.getControllerParent().setScreen(Main.getBillScreenID);
+    }
 
     @FXML
     void barnClicked(MouseEvent event) {
@@ -70,9 +76,9 @@ public class AccommodationsController extends ControlledView {
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
     }
     @FXML
-    void royaleClicked(MouseEvent event) {
-    	System.out.println("Royale Clicked");
-    	((CheckoutController) getControllerParent().getControlledView(Main.checkoutScreenID)).setCheckoutModel(new CheckoutModel("Royale"));
+    void yurtRoyaleClicked(MouseEvent event) {
+    	System.out.println("Yurt Royale Clicked");
+    	((CheckoutController) getControllerParent().getControlledView(Main.checkoutScreenID)).setCheckoutModel(new CheckoutModel("Yurt Royale"));
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
     }
     @FXML
@@ -100,9 +106,9 @@ public class AccommodationsController extends ControlledView {
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
     }
     @FXML
-    void yurtClicked(MouseEvent event) {
-    	System.out.println("Yurt Clicked");
-    	((CheckoutController) getControllerParent().getControlledView(Main.checkoutScreenID)).setCheckoutModel(new CheckoutModel("Yurt"));
+    void ecoYurtClicked(MouseEvent event) {
+    	System.out.println("Eco Yurt Clicked");
+    	((CheckoutController) getControllerParent().getControlledView(Main.checkoutScreenID)).setCheckoutModel(new CheckoutModel("Eco Yurt"));
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
     }
     

@@ -9,9 +9,9 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 @SuppressWarnings("unused")
 public class ProductController {
 
-	private static String url = "jdbc:mysql://localhost:3306/?user=root";
+	private static String url = "jdbc:mysql://172.16.1.78:3306/?user=root";
 	private static String username = "Gerome";
-	private static String password = "Divcun4s";
+	private static String password = "help";
 
 	public static void newProduct(Product product) throws SQLException {
 
@@ -110,5 +110,28 @@ public class ProductController {
 		}
 
 		return shoppingList;
+	}
+	
+	public static void replenishStock() throws ClassNotFoundException, SQLException {
+		
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+		
+		ArrayList<Product> replenishList = new ArrayList<>();
+		
+		replenishList.addAll(getGmShoppingList());
+		replenishList.addAll(getMercShoppingList());
+		
+
+		
+		for (Product product : replenishList) {
+			
+			System.out.println(product.getProductName());
+			
+			stmt.executeUpdate("UPDATE mydb.Product SET StockLevel=\'"+ product.getNormalLevel() 
+			+"\' WHERE ProductID=\'" + product.getProductID() + "\'");
+			
+			
+		}
 	}
 }
