@@ -16,16 +16,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="690.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.AccommodationsController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="honesty.controllers.AccommodationsController">
    <children>
-      <VBox prefHeight="800.0" prefWidth="1000.0" spacing="10.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
+      <VBox prefHeight="773.0" prefWidth="1220.0" spacing="10.0" AnchorPane.bottomAnchor="12.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="15.0">
          <children>
             <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="0.0" prefWidth="630.0" VBox.vgrow="NEVER">
                <children>
                   <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#staffSettingsClicked" text="Staff Settings" />
+                  <Text layoutX="458.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select your accommodation">
+                     <font>
+                        <Font size="41.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
-            <GridPane hgap="10.0" vgap="10.0" VBox.vgrow="ALWAYS">
+            <GridPane hgap="10.0" maxHeight="-Infinity" prefHeight="661.0" prefWidth="1220.0" vgap="10.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -309,7 +314,7 @@
                         </AnchorPane>
                      </children>
                   </VBox>
-                  <VBox alignment="CENTER" onMouseClicked="#yurtClicked" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                  <VBox alignment="CENTER" onMouseClicked="#ecoYurtClicked" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <children>
                         <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
                            <image>
@@ -318,7 +323,7 @@
                         </ImageView>
                         <AnchorPane VBox.vgrow="ALWAYS">
                            <children>
-                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Yurt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                              <Label alignment="CENTER" prefHeight="25.0" prefWidth="250.0" text="Eco Yurt" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <font>
                                     <Font name="Verdana" size="18.0" />
                                  </font>
@@ -329,6 +334,11 @@
                   </VBox>
                </children>
             </GridPane>
+            <Button mnemonicParsing="false" onAction="#getBillClicked" prefHeight="14.0" prefWidth="145.0" text="Get Bill">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children>
       </VBox>
    </children>
