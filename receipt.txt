@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Farmhouse 
 
 29/03.23o3u2io3r
@@ -6,3 +7,13 @@ Glasses       3.0€
 Glasses       3.0€ 
 Glasses       3.0€ 
 Total:  9.00€ 
+=======
+Farmhouse 
+
+29/03.23o3u2io3r
+
+Glasses       3.0€ 
+Glasses       3.0€ 
+Glasses       3.0€ 
+Total:  9.00€ 
+>>>>>>> origin/master
