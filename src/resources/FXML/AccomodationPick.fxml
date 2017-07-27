@@ -46,7 +46,7 @@
                <children>
                   <VBox alignment="CENTER" onMouseClicked="#barnClicked">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Barn.jpeg" />
                            </image>
@@ -64,7 +64,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#beachYurtClicked" GridPane.columnIndex="1">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../BeachYurt.jpeg" />
                            </image>
@@ -82,7 +82,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#cabinClicked" GridPane.columnIndex="2">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Cabin.jpeg" />
                            </image>
@@ -100,7 +100,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#casitaClicked" GridPane.columnIndex="3">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Casita.jpeg" />
                            </image>
@@ -118,7 +118,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#chicoYurtClicked" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../ChicoYurt.jpeg" />
                            </image>
@@ -136,7 +136,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#chiquititaClicked" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Chiquitita.jpeg" />
                            </image>
@@ -154,7 +154,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#farmhouseClicked" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Farmhouse.jpeg" />
                            </image>
@@ -172,7 +172,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#gardenCottageClicked" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../GardenCottage.jpeg" />
                            </image>
@@ -190,7 +190,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#lodgeClicked" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Lodge.jpeg" />
                            </image>
@@ -208,7 +208,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#palmYurtClicked" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../PalmYurt.jpeg" />
                            </image>
@@ -226,7 +226,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#yurtRoyaleClicked" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Royale.jpeg" />
                            </image>
@@ -244,7 +244,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#yurtSuiteClicked" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Suite.png" />
                            </image>
@@ -262,7 +262,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#towerClicked" GridPane.rowIndex="3">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Tower.jpeg" />
                            </image>
@@ -280,7 +280,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#twinYurtClicked" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../TwinYurt.jpeg" />
                            </image>
@@ -298,7 +298,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#villaClicked" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Villa.jpeg" />
                            </image>
@@ -316,7 +316,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#ecoYurtClicked" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <children>
-                        <ImageView fitHeight="100.0" fitWidth="150.0" pickOnBounds="true">
+                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Yurt.jpeg" />
                            </image>

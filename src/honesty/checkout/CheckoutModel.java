@@ -16,6 +16,8 @@ import honesty.product.ProductController;
 import javafx.animation.PauseTransition;
 import javafx.scene.Group;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.util.Duration;
@@ -67,43 +69,47 @@ public class CheckoutModel {
 			e.printStackTrace();
 
 			return false;
-		} catch (NullPointerException ex) {
-			ex.printStackTrace();
+		} catch (NullPointerException e) {
+			
 			System.out.println(this.getClass() + " This product is not in our Database");
 			
-			displayPopup();
+			displayErrorPopup();
 			
 			return false;
 		}
 
 	}
 
-	public void displayPopup() {
-		Stage popup = new Stage();
+	public void displayErrorPopup() {
 		
-		Group rootGroup = new Group();
-		
-		Scene scene = new Scene(rootGroup);
-		
-		popup.setScene(scene);
-		
-		// configure UI for popup etc...
-
-		// hide popup after 3 seconds:
 		PauseTransition delay = new PauseTransition(Duration.seconds(3));
-		delay.setOnFinished(e ->popup.hide());
-
+		Alert alert = new Alert(AlertType.ERROR);
 		
-		popup.setX(300);
-		popup.setY(300);
+    	alert.setTitle("Item Error");
+    	alert.setHeaderText("Error finding this item");
+    	alert.setContentText("Please contact staff about this item");
+    
+    	alert.show();	
+    	
+    	delay.setOnFinished(e -> alert.close());
+ 
+	}
+	
+	public void displayConfirmedPopup() {
 		
-		popup.setFullScreen(false);
+		PauseTransition delay = new PauseTransition(Duration.seconds(3));
+		Alert alert = new Alert(AlertType.INFORMATION);
 		
-		
-		
-		
-		popup.show();
-		delay.play();
+    	alert.setTitle("Purchase confirmed");
+    	alert.setHeaderText("Purchase confirmed");
+    	alert.setContentText("Thank you for using the honest shop");
+    
+    	
+    	
+    	alert.show();	
+    	
+    	delay.setOnFinished(e -> alert.close());
+ 
 	}
 
 	private Product getProductFromBasket(String barcode) {
@@ -135,7 +141,7 @@ public class CheckoutModel {
 		System.out.println(order.getDatetime());
 		OrderController.newOrder(order);
 		
-		displayPopup();
+		displayConfirmedPopup();
 		
 	}
 

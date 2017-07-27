@@ -42,7 +42,7 @@ public class Main extends Application {
 	public static String checkoutScreenFXML       = "/resources/FXML/CheckoutScreen.fxml";
 	public static String authenticationScreenID   = "auth";
 	public static String authenticationScreenFXML = "/resources/FXML/AuthenticationScreen.fxml";
-	public static String iconPath = "resources/Lanzarote-Logo.png";
+	public static String iconPath = "src\\resources\\Lanzarote-Logo.png";
 	
 	public static void main( String args[] ){
 		launch(args);
