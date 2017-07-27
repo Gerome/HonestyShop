@@ -8,9 +8,9 @@ import java.sql.Statement;
 
 public class LoginModel {
 
-	private static String url = "jdbc:mysql://172.16.1.78:3306/?user=root&useSSL=false";
+	private static String url = "jdbc:mysql://172.16.1.16:3306/?user=root&useSSL=false";
 	private static String username = "Gerome";
-	private static String password = "help";
+	private static String password = "Divcun4s";
 
 	public static boolean authenticateUser(String loginUsername, String loginPassword ) throws SQLException {
 		
@@ -18,12 +18,24 @@ public class LoginModel {
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
 
-		ResultSet rst = stmt.executeQuery("SELECT * FROM mydb.User "
+		ResultSet rs = stmt.executeQuery("SELECT * FROM mydb.User "
 				+ "WHERE \"" + loginUsername + "\" = Username AND \""
 						+ loginPassword +"\" = Password");
 		
-		if(rst.next()) return true;
-		return false;
+		
+		
+		if(rs.next()){
+			rs.close();
+			stmt.close();
+			conn.close();
+			return true;
+		} else {
+			rs.close();
+			stmt.close();
+			conn.close();
+			return false;
+		}
+		
 		
 		
 	}

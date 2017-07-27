@@ -9,9 +9,9 @@ import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 @SuppressWarnings("unused")
 public class ProductController {
 
-	private static String url = "jdbc:mysql://172.16.1.78:3306/?user=root";
+	private static String url = "jdbc:mysql://172.16.1.16:3306/?user=root&useSSL=false";
 	private static String username = "Gerome";
-	private static String password = "help";
+	private static String password = "Divcun4s";
 
 	public static void newProduct(Product product) throws SQLException {
 
@@ -23,6 +23,10 @@ public class ProductController {
 						+ product.getProductID() + ",\"" + product.getProductName() + "\"," + product.getBuyPrice()
 						+ "," + product.getSellPrice() + "," + product.getStockLevel() + "," + product.getNormalLevel()
 						+ ");");
+		
+	
+		stmt.close();
+		conn.close();
 	}
 
 	public static ArrayList<Product> getAllProducts() throws ClassNotFoundException, SQLException {
@@ -41,6 +45,10 @@ public class ProductController {
 			productList.add(product);
 		}
 
+		rs.close();
+		stmt.close();
+		conn.close();
+		
 		return productList;
 	}
 
@@ -86,6 +94,10 @@ public class ProductController {
 
 		}
 
+		rs.close();
+		stmt.close();
+		conn.close();
+		
 		return shoppingList;
 	}
 
@@ -108,6 +120,10 @@ public class ProductController {
 			shoppingList.add(product);
 
 		}
+		
+		rs.close();
+		stmt.close();
+		conn.close();
 
 		return shoppingList;
 	}
@@ -133,5 +149,9 @@ public class ProductController {
 			
 			
 		}
+		
+	
+		stmt.close();
+		conn.close();
 	}
 }

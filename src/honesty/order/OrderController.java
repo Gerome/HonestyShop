@@ -13,9 +13,9 @@ import honesty.product.Product;
 @SuppressWarnings("unused")
 public class OrderController {
 
-	private static String url = "jdbc:mysql://172.16.1.78:3306/?user=root&useSSL=false";
+	private static String url = "jdbc:mysql://172.16.1.16:3306/?user=root&useSSL=false";
 	private static String username = "Gerome";
-	private static String password = "help";
+	private static String password = "Divcun4s";
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
@@ -42,12 +42,17 @@ public class OrderController {
 					+ " WHERE ProductID = " + product.getProductID());
 		}
 
-		System.out.println("Finished the purchase");
+		
+		stmt.close();
+		conn.close();
 	}
 
 	public static ArrayList<Order> getAllOrders() throws ClassNotFoundException, SQLException {
 
-		ResultSet rs = getResultSet("SELECT * FROM Order");
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+		
+		ResultSet rs = stmt.executeQuery("SELECT * FROM Order");
 
 		ArrayList<Order> orderList = new ArrayList<>();
 
@@ -57,12 +62,20 @@ public class OrderController {
 
 			orderList.add(order);
 		}
+		
+		rs.close();
+		stmt.close();
+		conn.close();
+		
 		return orderList;
 	}
 
 	public static ArrayList<Order> getOrdersBetween(String from, String to, String accommodation) throws SQLException {
 
-		ResultSet rs = getResultSet(
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
+		
+		ResultSet rs = stmt.executeQuery(
 				"SELECT * FROM mydb.Order" + " WHERE (Date between \'" 
 						+ from + "\' AND \'" 
 						+ to + "\') AND \""
@@ -76,6 +89,10 @@ public class OrderController {
 
 			orderList.add(order);
 		}
+		
+		rs.close();
+		stmt.close();
+		conn.close();
 
 		return orderList;
 
@@ -83,8 +100,11 @@ public class OrderController {
 
 	public static ArrayList<OrderDetail> getDetailsFromOrder(Order order)
 			throws SQLException {
+		
+		Connection conn = DriverManager.getConnection(url, username, password);
+		Statement stmt = conn.createStatement();
 
-		ResultSet rs = getResultSet(
+		ResultSet rs = stmt.executeQuery(
 				"SELECT * FROM mydb.OrderDetail" + " WHERE \'" + order.getOrderID() + "\' = OrderID");
 
 		ArrayList<OrderDetail> orderDetailList = new ArrayList<>();
@@ -100,19 +120,16 @@ public class OrderController {
 
 			orderDetailList.add(orderDetail);
 		}
+		
+		rs.close();
+		stmt.close();
+		conn.close();
 
 		return orderDetailList;
 
 	}
 
-	private static ResultSet getResultSet(String sql) throws SQLException {
-		Connection conn = DriverManager.getConnection(url, username, password);
-		Statement stmt = conn.createStatement();
-		stmt = conn.createStatement();
-		ResultSet rs;
-		rs = stmt.executeQuery(sql);
-		return rs;
-	}
+	
 
 	public static String generateOrderID() {
 		String uniqueID = UUID.randomUUID().toString();
