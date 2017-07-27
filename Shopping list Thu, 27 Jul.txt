@@ -1,9 +1,0 @@
-        Product  Buy Price Sell Price     To Purchase     Supplier 
-
-       Fish Oil      1.00€      2.50€               2    Mercadona 
-        Bubbles      1.20€      5.22€              20           GM 
-            7up      1.00€      1.99€              20           GM 
-         Firgas      1.00€      2.30€              24           GM 
-         Pepper      1.30€      4.00€               7           GM 
-123456789123456789123456789      5.00€      7.00€              38           GM 
-        Quantum      1.32€      4.99€              20           GM 

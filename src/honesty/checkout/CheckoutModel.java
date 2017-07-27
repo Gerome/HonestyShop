@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
+import honesty.Main;
 import honesty.order.Order;
 import honesty.order.OrderController;
 import honesty.product.Product;
@@ -85,10 +86,14 @@ public class CheckoutModel {
 		PauseTransition delay = new PauseTransition(Duration.seconds(3));
 		Alert alert = new Alert(AlertType.ERROR);
 		
+		
+		
     	alert.setTitle("Item Error");
     	alert.setHeaderText("Error finding this item");
     	alert.setContentText("Please contact staff about this item");
-    
+    	
+    	alert.initOwner(Main.getStage());
+    	
     	alert.show();	
     	
     	delay.setOnFinished(e -> alert.close());
@@ -104,7 +109,7 @@ public class CheckoutModel {
     	alert.setHeaderText("Purchase confirmed");
     	alert.setContentText("Thank you for using the honest shop");
     
-    	
+    	alert.initOwner(Main.getStage());
     	
     	alert.show();	
     	

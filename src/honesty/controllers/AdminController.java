@@ -47,14 +47,11 @@ public class AdminController extends ControlledView {
     	gmShoppingList = ProductController.getGmShoppingList();
     	
     	
-    	
-    	
+    		
     	try{
     		
-    		
 
-    		
-    	    PrintWriter writer = new PrintWriter("Shopping list " + SDF.format(new Date()) + ".txt", "UTF-8");
+    	    PrintWriter writer = new PrintWriter("D:\\Shopping list " + SDF.format(new Date()) + ".txt", "UTF-8");
     	    
     	    writer.write(String.format("%15s %10s %10s %15s %12s \r\n\n", "Product", "Buy Price", "Sell Price", "To Purchase", "Supplier"));
     	    

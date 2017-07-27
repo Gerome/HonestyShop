@@ -10,26 +10,7 @@ import javafx.stage.Stage;
 
 public class Main extends Application {
 
-	/*MainModel model;
-	MainView view;
-	
-	public static void main(String args[]) {
-		new MainController();
-	}
-	
-	public MainController() {
-		model = new MainModel();
-		view = new MainView(this);
-	}
-	
-	public void launchCheckout(String accommodation) {
-		model.launchCheckout(accommodation);
-	}
-	
-	public void launchStaffArea() {
-		model.launchStaffArea();
-	}*/
-	
+	private static Stage primaryStage;
 	public static String accommodationScreenID    = "accommodation";
 	public static String accommodationScreenFXML  = "/resources/FXML/AccomodationPick.fxml";
 	public static String adminScreenID            = "admin";
@@ -51,6 +32,9 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// Create Main Controller
+		
+		Main.primaryStage = primaryStage;
+		
 		ScreensController mainController = new ScreensController();
 		
 		// Load in all Screens
@@ -77,5 +61,10 @@ public class Main extends Application {
 		primaryStage.setScene(scene);
 		primaryStage.show();	
 	}
+	
+	public static Stage getStage() {
+		return primaryStage;
+	}
+	
 	
 }
