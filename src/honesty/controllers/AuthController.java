@@ -24,6 +24,7 @@ public class AuthController extends ControlledView {
     	userNameField.setText("");
 		passwordField.setText("");
     	this.getControllerParent().setScreen(Main.accommodationScreenID);
+    	
     }
 
     @FXML

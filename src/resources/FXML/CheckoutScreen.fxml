@@ -23,11 +23,11 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <HBox layoutY="52.0" prefHeight="544.0" prefWidth="1240.0" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
+      <HBox layoutY="52.0" prefHeight="655.0" prefWidth="1240.0" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0">
          <children>
-            <VBox maxWidth="-Infinity" prefHeight="592.0" prefWidth="903.0">
+            <VBox maxWidth="-Infinity" prefHeight="631.0" prefWidth="903.0">
                <children>
-                  <TableView fx:id="productTable" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="457.0" prefWidth="848.0">
+                  <TableView fx:id="productTable" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="513.0" prefWidth="848.0">
                     <columns>
                     
                       <TableColumn fx:id="ProductName" prefWidth="698.738899230957" text="Product">
@@ -44,9 +44,20 @@
                     
                     </columns>
                   </TableView>
-                  <HBox>
+                  <Button fx:id="clearItemButton" focusTraversable="false" mnemonicParsing="false" onAction="#clearItem" prefHeight="61.0" prefWidth="130.0" text="Clear Item">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </Button>
+                  <HBox alignment="BOTTOM_RIGHT" maxWidth="-Infinity" prefHeight="70.0" prefWidth="904.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total:             €" wrappingWidth="290.0908203125">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total:         €" wrappingWidth="242.54644775390625">
                            <font>
                               <Font size="41.0" />
                            </font>
@@ -54,7 +65,7 @@
                               <Insets top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Text fx:id="totalTextBox" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" wrappingWidth="135.21875">
+                        <Text fx:id="totalTextBox" strokeType="OUTSIDE" strokeWidth="0.0" text="0.00" wrappingWidth="136.255126953125">
                            <font>
                               <Font size="41.0" />
                            </font>
@@ -66,11 +77,13 @@
                      <VBox.margin>
                         <Insets />
                      </VBox.margin>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets left="500.0" />
+                     </padding>
                   </HBox>
-                  <Button fx:id="clearItemButton" focusTraversable="false" mnemonicParsing="false" onAction="#clearItem" prefHeight="31.0" prefWidth="94.0" text="Clear Item">
-                     <font>
-                        <Font size="15.0" />
-                     </font></Button>
                </children>
                <HBox.margin>
                   <Insets left="100.0" />

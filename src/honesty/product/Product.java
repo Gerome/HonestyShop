@@ -8,6 +8,7 @@ public class Product {
 	private BigDecimal buyPrice, sellPrice;
 	private int stockLevel, normalLevel, quantity;
 	
+	
 	public Product(String productID, 
 			String productName,
 			BigDecimal buyPrice, 

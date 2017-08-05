@@ -1,7 +1,6 @@
 package honesty.checkout;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -15,12 +14,8 @@ import honesty.order.OrderController;
 import honesty.product.Product;
 import honesty.product.ProductController;
 import javafx.animation.PauseTransition;
-import javafx.scene.Group;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Label;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class CheckoutModel {

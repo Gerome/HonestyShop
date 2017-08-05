@@ -2,9 +2,9 @@ package Database;
 
 public class DatabaseConnector {
 
-	private static String url = "jdbc:mysql://192.168.0.15:3306/?user=root&useSSL=false";
+	private static String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
 	private static String username = "Gerome";
-	private static String password = "help";
+	private static String password = "Divcun4s";
 	
 	public static String getUrl() {
 		return url;

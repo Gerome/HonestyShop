@@ -4,9 +4,7 @@ import java.sql.SQLException;
 
 import honesty.Main;
 import honesty.checkout.CheckoutModel;
-import honesty.order.OrderDetail;
-import honesty.product.Product;
-import honesty.product.ProductController;
+import honesty.product.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
@@ -30,6 +28,7 @@ public class CheckoutController extends ControlledView {
 		System.out.println("Cancel Clicked: " + getClass());
 
 		productTable.getItems().clear();
+		inputField.setText("");
 		totalTextBox.setText("0.00");
 
 		this.getControllerParent().setScreen(Main.accommodationScreenID);

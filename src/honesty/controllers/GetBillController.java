@@ -6,20 +6,21 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import honesty.Main;
 import honesty.order.Order;
 import honesty.order.OrderController;
 import honesty.order.OrderDetail;
-import honesty.product.Product;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.text.Text;
 
 public class GetBillController extends ControlledView {
@@ -34,12 +35,7 @@ public class GetBillController extends ControlledView {
 	private ComboBox<String> accommodationPicker;
 	@FXML
 	private Button goButton;
-	
-	@FXML
-	private Button printBillButton;
-	
-	@FXML
-	private Text totalTextBox;
+
 
 	@FXML
 	private TextField fromHour;
@@ -53,7 +49,27 @@ public class GetBillController extends ControlledView {
 	private BigDecimal billTotal = new BigDecimal("0.00");
 	private ArrayList<Order> orderList = new ArrayList<>();
 	private ArrayList<OrderDetail> orderDetailList = new ArrayList<>();
+	private SimpleDateFormat SDF = new SimpleDateFormat("EEE, dd MMM");
 
+	@FXML
+	private Button printBillButton;
+
+	@FXML
+	private Text totalTextBox;
+	
+
+	@FXML
+	void openToPicker(ActionEvent event) {
+		if (toPicker.getValue() == (null))
+				toPicker.show();
+	}
+	
+	@FXML
+	void openAccommodationDropdown() {
+		if (accommodationPicker.getSelectionModel().isEmpty())
+			accommodationPicker.show();
+	}
+	
 	@FXML
 	void backClicked(ActionEvent event) {
 		System.out.println("Back Clicked: " + getClass());
@@ -75,31 +91,28 @@ public class GetBillController extends ControlledView {
 		fromMin.setText("00");
 		toHour.setText("10");
 		toMin.setText("00");
-		
-		
+
 	}
 
 	@FXML
 	void printBillClicked(ActionEvent event) {
 
 		System.out.println("Print Clicked: " + getClass());
-		
+
 		try {
 
-			PrintWriter writer = new PrintWriter("receipt.txt", "UTF-8");
+			PrintWriter writer = new PrintWriter(accommodationPicker.getValue() + " Receipt " + SDF.format(new Date()) + ".txt", "UTF-8");
 
 			writer.write(String.format("%s \r\n\n", accommodationPicker.getValue()));
 
 			for (int i = 0; i < orderTable.getItems().size(); i++) {
 
-				writer.write(String.format("%s %10s \r\n", orderTable.getItems().get(i).getProductName(),
+				writer.write(String.format("%15s %10s \r\n", orderTable.getItems().get(i).getProductName(),
 						orderTable.getItems().get(i).getLineTotal() + "€"));
-				
+
 			}
 
-			
-			writer.write(String.format("%s %s \r\n", "Total: ",
-					totalTextBox.getText() + "€"));
+			writer.write(String.format("%s %s \r\n", "Total: ", totalTextBox.getText() + "€"));
 
 			writer.close();
 
@@ -112,6 +125,20 @@ public class GetBillController extends ControlledView {
 	@FXML
 	void goClicked(ActionEvent event) throws SQLException {
 		System.out.println("Go Clicked: " + getClass());
+
+		if (fromPicker.getValue() == (null) || toPicker.getValue() == (null))
+			displayErrorPopup(
+					"Invalid date", 
+					"One of the dates is incorrect", 
+					"Please select a valid date");
+		
+		
+
+		if (accommodationPicker.getSelectionModel().isEmpty())
+			displayErrorPopup(
+					"Accommodation error", 
+					"You have not selected your accommodation",
+					"Please select one from the drop to the right of the date picker");
 
 		orderTable.getItems().clear();
 		orderDetailList.clear();
@@ -128,12 +155,51 @@ public class GetBillController extends ControlledView {
 			orderDetailList.addAll(OrderController.getDetailsFromOrder(order));
 			billTotal = billTotal.add(order.getTotal());
 		}
+		if(fromPicker.getValue().isAfter(toPicker.getValue())) {
+			displayErrorPopup(
+					"Invalid date", 
+					"\"From\" cannot be after your \"To\" date", 
+					"Please adjust the dates");
+		}
+		else if(orderList.isEmpty()) {
+			displayInfoPopup("Nothing to show", "Nothing has been bought between these dates", "");
+		}
+		else {
+			printBillButton.setDisable(false);
+		}
 
 		totalTextBox.setText(billTotal.toString());
 
 		orderTable.getItems().addAll(orderDetailList);
+
 		
-		printBillButton.setDisable(false);
+
+	}
+
+	public void displayErrorPopup(String title, String header, String context) {
+
+		Alert alert = new Alert(AlertType.ERROR);
+
+		alert.setTitle(title);
+		alert.setHeaderText(header);
+		alert.setContentText(context);
+
+		alert.initOwner(Main.getStage());
+
+		alert.show();
+
+	}
+	
+	public void displayInfoPopup(String title, String header, String context) {
+
+		Alert alert = new Alert(AlertType.INFORMATION);
+
+		alert.setTitle(title);
+		alert.setHeaderText(header);
+		
+		alert.initOwner(Main.getStage());
+	
+		alert.show();
 
 	}
 }

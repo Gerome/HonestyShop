@@ -1,8 +1,5 @@
 package honesty.order;
 
-import java.util.ArrayList;
-
-import honesty.product.Product;
 
 public class OrderDetail {
 	

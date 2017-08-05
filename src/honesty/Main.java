@@ -1,11 +1,12 @@
 package honesty;
 
-import java.io.File;
+import java.io.File; 
 
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -24,7 +25,6 @@ public class Main extends Application {
 	public static String authenticationScreenID   = "auth";
 	public static String authenticationScreenFXML = "/resources/FXML/AuthenticationScreen.fxml";
 	public static String iconPath = "src\\resources\\Lanzarote-Logo.png";
-	
 	public static void main( String args[] ){
 		launch(args);
 	}
@@ -32,7 +32,6 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// Create Main Controller
-		
 		Main.primaryStage = primaryStage;
 		
 		ScreensController mainController = new ScreensController();
@@ -59,6 +58,10 @@ public class Main extends Application {
 		primaryStage.getIcons().add(image);
 		
 		primaryStage.setScene(scene);
+		
+		primaryStage.setFullScreenExitHint("");
+		primaryStage.setFullScreenExitKeyCombination(KeyCombination.keyCombination("Shift+q"));
+	
 		primaryStage.show();	
 	}
 	

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -23,14 +26,14 @@
             <AnchorPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="0.0" prefWidth="630.0" VBox.vgrow="NEVER">
                <children>
                   <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#staffSettingsClicked" text="Staff Settings" />
-                  <Text layoutX="458.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select your accommodation">
+                  <Text layoutX="458.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Please select your accommodation" AnchorPane.bottomAnchor="5.0">
                      <font>
                         <Font size="41.0" />
                      </font>
                   </Text>
                </children>
             </AnchorPane>
-            <GridPane hgap="10.0" maxHeight="-Infinity" prefHeight="661.0" prefWidth="1220.0" vgap="10.0" VBox.vgrow="ALWAYS">
+            <GridPane hgap="10.0" maxHeight="-Infinity" prefHeight="680.0" prefWidth="1220.0" vgap="20.0" VBox.vgrow="ALWAYS">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -46,7 +49,7 @@
                <children>
                   <VBox alignment="CENTER" onMouseClicked="#barnClicked">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Barn.jpeg" />
                            </image>
@@ -64,7 +67,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#beachYurtClicked" GridPane.columnIndex="1">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../BeachYurt.jpeg" />
                            </image>
@@ -82,7 +85,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#cabinClicked" GridPane.columnIndex="2">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Cabin.jpeg" />
                            </image>
@@ -100,7 +103,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#casitaClicked" GridPane.columnIndex="3">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Casita.jpeg" />
                            </image>
@@ -118,7 +121,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#chicoYurtClicked" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../ChicoYurt.jpeg" />
                            </image>
@@ -136,7 +139,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#chiquititaClicked" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Chiquitita.jpeg" />
                            </image>
@@ -154,7 +157,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#farmhouseClicked" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Farmhouse.jpeg" />
                            </image>
@@ -172,7 +175,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#gardenCottageClicked" GridPane.columnIndex="3" GridPane.rowIndex="1">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../GardenCottage.jpeg" />
                            </image>
@@ -190,7 +193,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#lodgeClicked" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Lodge.jpeg" />
                            </image>
@@ -208,7 +211,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#palmYurtClicked" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../PalmYurt.jpeg" />
                            </image>
@@ -226,7 +229,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#yurtRoyaleClicked" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Royale.jpeg" />
                            </image>
@@ -244,7 +247,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#yurtSuiteClicked" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Suite.png" />
                            </image>
@@ -280,7 +283,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#twinYurtClicked" GridPane.columnIndex="1" GridPane.rowIndex="3">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../TwinYurt.jpeg" />
                            </image>
@@ -298,7 +301,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#villaClicked" GridPane.columnIndex="2" GridPane.rowIndex="3">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Villa.jpeg" />
                            </image>
@@ -316,7 +319,7 @@
                   </VBox>
                   <VBox alignment="CENTER" onMouseClicked="#ecoYurtClicked" GridPane.columnIndex="3" GridPane.rowIndex="3">
                      <children>
-                        <ImageView fitHeight="120.0" fitWidth="180.0" pickOnBounds="true">
+                        <ImageView fitHeight="140.0" fitWidth="210.0" pickOnBounds="true">
                            <image>
                               <Image url="@../Yurt.jpeg" />
                            </image>
@@ -334,11 +337,23 @@
                   </VBox>
                </children>
             </GridPane>
-            <Button mnemonicParsing="false" onAction="#getBillClicked" prefHeight="14.0" prefWidth="145.0" text="Get Bill">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Button>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="42.0" prefWidth="1220.0">
+               <children>
+                  <Button maxHeight="-Infinity" mnemonicParsing="false" onAction="#getBillClicked" prefHeight="45.0" prefWidth="160.0" text="Get Bill">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Property of Lanzarote Retreats     Made by Gerome Braddock" wrappingWidth="220.18505859375">
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                     <HBox.margin>
+                        <Insets left="850.0" top="10.0" />
+                     </HBox.margin>
+                  </Text>
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>

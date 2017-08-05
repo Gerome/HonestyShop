@@ -51,7 +51,7 @@ public class AdminController extends ControlledView {
     	try{
     		
 
-    	    PrintWriter writer = new PrintWriter("D:\\Shopping list " + SDF.format(new Date()) + ".txt", "UTF-8");
+    	    PrintWriter writer = new PrintWriter("Shopping list " + SDF.format(new Date()) + ".txt", "UTF-8");
     	    
     	    writer.write(String.format("%15s %10s %10s %15s %12s \r\n\n", "Product", "Buy Price", "Sell Price", "To Purchase", "Supplier"));
     	    
@@ -61,8 +61,8 @@ public class AdminController extends ControlledView {
     	    	
     	    	
     	    	writer.write(String.format("%15s %10s %10s %15s %12s \r\n", mercShoppingList.get(i).getProductName(), 
-    	    			mercShoppingList.get(i).getBuyPrice() + "€",
-    	    			mercShoppingList.get(i).getSellPrice() + "€",
+    	    			mercShoppingList.get(i).getBuyPrice() + "â‚¬",
+    	    			mercShoppingList.get(i).getSellPrice() + "â‚¬",
     	    			mercShoppingList.get(i).getNormalLevel() - mercShoppingList.get(i).getStockLevel(),
     	    			"Mercadona"
     	    			));
@@ -72,8 +72,8 @@ public class AdminController extends ControlledView {
         	for(int i = 0; i < gmShoppingList.size(); i++) {
         		       		
         		writer.write(String.format("%15s %10s %10s %15s %12s \r\n", gmShoppingList.get(i).getProductName(), 
-        				gmShoppingList.get(i).getBuyPrice() + "€",
-        				gmShoppingList.get(i).getSellPrice() + "€",
+        				gmShoppingList.get(i).getBuyPrice() + "â‚¬",
+        				gmShoppingList.get(i).getSellPrice() + "â‚¬",
         				gmShoppingList.get(i).getNormalLevel() - gmShoppingList.get(i).getStockLevel(),
     	    			"GM"
     	    			));

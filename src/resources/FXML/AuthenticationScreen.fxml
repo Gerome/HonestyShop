@@ -22,7 +22,7 @@
             <Font size="36.0" />
          </font>
       </Label>
-      <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backClicked" text="Back" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="6.0">
+      <Button focusTraversable="false" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#backClicked" text="Back" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="6.0">
          <font>
             <Font size="18.0" />
          </font>
