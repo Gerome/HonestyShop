@@ -144,11 +144,7 @@
                         <PropertyValueFactory property="Date" />
                      </cellValueFactory>
                   </TableColumn>
-                  <TableColumn fx:id="Name" prefWidth="150.0" text="Name">
-                     <cellValueFactory>
-                        <PropertyValueFactory property="Name" />
-                     </cellValueFactory>
-                  </TableColumn>
+                  
                 
               </columns>
             </TableView>

@@ -50,6 +50,7 @@ public class GetBillController extends ControlledView {
 	private ArrayList<Order> orderList = new ArrayList<>();
 	private ArrayList<OrderDetail> orderDetailList = new ArrayList<>();
 	private SimpleDateFormat SDF = new SimpleDateFormat("EEE, dd MMM");
+	
 
 	@FXML
 	private Button printBillButton;

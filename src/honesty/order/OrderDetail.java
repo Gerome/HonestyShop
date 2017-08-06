@@ -5,16 +5,16 @@ public class OrderDetail {
 	
 	private String productName, date, name;
 	private int quantity;
-	private double lineTotal;
+	private String lineTotal;
 
 	public OrderDetail(String productName, int quantity, 
-			double lineTotal, String date, String name) {
+			String string, String date, String name) {
 		
 		this.setName(name);
 		this.setDate(date);
 		this.setProductName(productName);
 		this.setQuantity(quantity);
-		this.setLineTotal(lineTotal);
+		this.setLineTotal(string);
 	}
 
 	public String getProductName() {
@@ -33,12 +33,12 @@ public class OrderDetail {
 		this.quantity = quantity;
 	}
 
-	public double getLineTotal() {
+	public String getLineTotal() {
 		return lineTotal;
 	}
 
-	public void setLineTotal(double lineTotal) {
-		this.lineTotal = lineTotal;
+	public void setLineTotal(String string) {
+		this.lineTotal = string;
 	}
 
 	public String getDate() {

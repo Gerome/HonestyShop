@@ -3,6 +3,7 @@ package honesty.order;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,11 +21,13 @@ public class OrderController {
 	private static String password = DatabaseConnector.getPassword();
 	
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
+	private static	DecimalFormat df = new DecimalFormat("#.00");
 	public static void newOrder(Order order) throws SQLException {
 
 		Connection conn = DriverManager.getConnection(url, username, password);
 		Statement stmt = conn.createStatement();
+		
+		
 
 		stmt.executeUpdate("INSERT INTO mydb.Order (OrderID, Accommodation, Date, Total, Name) VALUES(\""
 				+ order.getOrderID() + "\",\"" + order.getAccommodation() + "\",\"" + order.getDatetime() + "\","
@@ -115,7 +118,7 @@ public class OrderController {
 			OrderDetail orderDetail = new OrderDetail(
 					rs.getString("ProductName"), 
 					rs.getInt("Quantity"), 
-					rs.getDouble("LineTotal"), 
+					df.format(rs.getDouble("LineTotal")), 
 					order.getDatetime(), 
 					order.getName()
 					);
