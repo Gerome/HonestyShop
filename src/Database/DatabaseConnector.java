@@ -4,7 +4,7 @@ public class DatabaseConnector {
 
 	private static String url = "jdbc:mysql://localhost:3306/?user=root&useSSL=false";
 	private static String username = "Gerome";
-	private static String password = "Divcun4s";
+	private static String password = "help";
 	
 	public static String getUrl() {
 		return url;
