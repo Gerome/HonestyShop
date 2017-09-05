@@ -102,20 +102,30 @@ public class GetBillController extends ControlledView {
 
 		try {
 
-			PrintWriter writer = new PrintWriter(accommodationPicker.getValue() + " Receipt " + SDF.format(new Date()) + ".txt", "UTF-8");
+			PrintWriter writer = new PrintWriter(accommodationPicker.getValue() + " Receipt " + SDF.format(new Date()) + ".csv", "UTF-8");
 
-			writer.write(String.format("%s \r\n\n", accommodationPicker.getValue()));
+			writer.write(String.format("%s \r\n", accommodationPicker.getValue()));
 
 			for (int i = 0; i < orderTable.getItems().size(); i++) {
 
-				writer.write(String.format("%15s %10s \r\n", orderTable.getItems().get(i).getProductName(),
-						orderTable.getItems().get(i).getLineTotal() + "€"));
+				writer.write(String.format("%15s %10s \r\n", orderTable.getItems().get(i).getProductName() + ",",
+						orderTable.getItems().get(i).getLineTotal() + " euros"));
 
 			}
 
-			writer.write(String.format("%s %s \r\n", "Total: ", totalTextBox.getText() + "€"));
+			writer.write(String.format("%s %s \r\n", "Total: ,", totalTextBox.getText() + " euros"));
 
 			writer.close();
+			
+			
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Shopping bill");
+        	alert.setHeaderText("Shopping bill");
+        	alert.setContentText("Your bill is now on the desktop");
+        
+        	alert.initOwner(Main.getStage());
+        	
+        	alert.show();	
 
 		} catch (IOException e) {
 			System.out.println(e.getStackTrace());

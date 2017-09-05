@@ -12,6 +12,8 @@ import honesty.product.Product;
 import honesty.product.ProductController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 
 public class AdminController extends ControlledView {
 	
@@ -51,19 +53,19 @@ public class AdminController extends ControlledView {
     	try{
     		
 
-    	    PrintWriter writer = new PrintWriter("Shopping list " + SDF.format(new Date()) + ".txt", "UTF-8");
+    	    PrintWriter writer = new PrintWriter("Shopping list " + SDF.format(new Date()) + ".csv", "UTF-8");
     	    
-    	    writer.write(String.format("%15s %10s %10s %15s %12s \r\n\n", "Product", "Buy Price", "Sell Price", "To Purchase", "Supplier"));
+    	    writer.write(String.format("%15s %10s %10s %15s %12s \r\n", "Product,", "Buy Price,", "Sell Price,", "To Purchase,", "Supplier"));
     	    
     	    	    
     	    for(int i = 0; i < mercShoppingList.size(); i++) {
         		
     	    	
     	    	
-    	    	writer.write(String.format("%15s %10s %10s %15s %12s \r\n", mercShoppingList.get(i).getProductName(), 
-    	    			mercShoppingList.get(i).getBuyPrice() + "€",
-    	    			mercShoppingList.get(i).getSellPrice() + "€",
-    	    			mercShoppingList.get(i).getNormalLevel() - mercShoppingList.get(i).getStockLevel(),
+    	    	writer.write(String.format("%15s %10s %10s %15s %12s \r\n", mercShoppingList.get(i).getProductName() + ",", 
+    	    			mercShoppingList.get(i).getBuyPrice() + ",",
+    	    			mercShoppingList.get(i).getSellPrice() + ",",
+    	    			mercShoppingList.get(i).getNormalLevel() - mercShoppingList.get(i).getStockLevel() + ",",
     	    			"Mercadona"
     	    			));
     	    	
@@ -71,16 +73,26 @@ public class AdminController extends ControlledView {
         	
         	for(int i = 0; i < gmShoppingList.size(); i++) {
         		       		
-        		writer.write(String.format("%15s %10s %10s %15s %12s \r\n", gmShoppingList.get(i).getProductName(), 
-        				gmShoppingList.get(i).getBuyPrice() + "€",
-        				gmShoppingList.get(i).getSellPrice() + "€",
-        				gmShoppingList.get(i).getNormalLevel() - gmShoppingList.get(i).getStockLevel(),
+        		writer.write(String.format("%15s %10s %10s %15s %12s \r\n", gmShoppingList.get(i).getProductName() + ",", 
+        				gmShoppingList.get(i).getBuyPrice() + ",",
+        				gmShoppingList.get(i).getSellPrice() + ",",
+        				gmShoppingList.get(i).getNormalLevel() - gmShoppingList.get(i).getStockLevel() + ",",
     	    			"GM"
     	    			));
         		
         	}
         	
         	writer.close();
+        	
+        	Alert alert = new Alert(AlertType.INFORMATION);
+        	
+        	alert.setTitle("Shopping list");
+        	alert.setHeaderText("Shopping list");
+        	alert.setContentText("The shopping list is now on the desktop");
+        
+        	alert.initOwner(Main.getStage());
+        	
+        	alert.show();	
         	
     	} catch (IOException e) {
     	   System.out.println(e.getStackTrace());

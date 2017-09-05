@@ -1,0 +1,6 @@
+        Product  Buy Price Sell Price     To Purchase     Supplier 
+
+         Nestea      1.50€      3.00€               2           GM 
+         Puzzle      3.00€      5.20€              17           GM 
+         Pepper      1.30€      4.00€              17           GM 
+   Test product      5.00€      7.00€              16           GM 
