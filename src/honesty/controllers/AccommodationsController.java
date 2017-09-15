@@ -112,6 +112,12 @@ public class AccommodationsController extends ControlledView {
     	this.getControllerParent().setScreen(Main.checkoutScreenID);
     }
     
+    @FXML
+    void otherGuestsClicked(MouseEvent event) {
+    	System.out.println("Other guests Clicked");
+    	((CheckoutController) getControllerParent().getControlledView(Main.checkoutScreenID)).setCheckoutModel(new CheckoutModel("Other"));
+    	this.getControllerParent().setScreen(Main.checkoutScreenID);
+    }
     
     @FXML
     void staffSettingsClicked(ActionEvent event) {

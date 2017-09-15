@@ -1,0 +1,14 @@
+Cabin 
+
+Item                        Qty      Price
+----                        ---      -----
+M&Ms                          5      5.00€
+ 
+Conditionor- Panene           3     12.00€
+ 
+Conditionor- Panene           1      4.00€
+ 
+Conditionor- Panene           1      4.00€
+ 
+
+Total:                              25.00€ 

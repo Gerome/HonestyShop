@@ -1,6 +1,0 @@
-        Product  Buy Price Sell Price     To Purchase     Supplier 
-
-       Einstein      2.00€      3.50€               9    Mercadona 
-         Puzzle      3.00€      5.20€              16           GM 
-            7up      1.00€      1.99€              18           GM 
-   Test product      5.00€      7.00€              15           GM 

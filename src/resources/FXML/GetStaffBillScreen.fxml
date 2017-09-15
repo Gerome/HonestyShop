@@ -42,27 +42,15 @@
                      </font>
                   </Text>
                   <DatePicker fx:id="toPicker" onAction="#openAccommodationDropdown" />
-                  <ComboBox fx:id="accommodationPicker" prefHeight="37.0" prefWidth="156.0" promptText="Accommodation" visibleRowCount="12">  
+                  <ComboBox fx:id="accommodationPicker" prefHeight="37.0" prefWidth="156.0" promptText="Staff name" visibleRowCount="12">  
                	   <items>
             			  <FXCollections fx:factory="observableArrayList">
             			  
-                       			 <String fx:value="Barn" />
-                 			 <String fx:value="Cabin" />
-                 			 <String fx:value="Casita" />
-                 			 <String fx:value="Farmhouse" />
-                 			 <String fx:value="Garden Cottage" /> 	
-                 			 <String fx:value="Lodge" />	 
-                 			 <String fx:value="Tower" />       			 
-                 			 <String fx:value="Villa" />
-                 			 
-                       			 <String fx:value="Beach Yurt" />
-                 			 <String fx:value="Chico Yurt" />
-                 			 <String fx:value="Chiquitita" />
-                 			 <String fx:value="Eco Yurt" />
-                 			 <String fx:value="Palm Yurt" />  
-                 			 <String fx:value="Twin Yurt" />
-                 			 <String fx:value="Yurt Royale" />
-                 			 <String fx:value="Yurt Suite" />
+                       		 <String fx:value="All" />
+                 			 <String fx:value="Josh" />
+                 			 <String fx:value="Julie" />
+                 			 <String fx:value="Sally" />
+                 			 <String fx:value="Maricel" />
                  			 
                        			 
               			</FXCollections>

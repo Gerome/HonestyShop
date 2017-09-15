@@ -38,6 +38,9 @@ public class CheckoutController extends ControlledView {
 	void confirmClicked(ActionEvent event) throws SQLException {
 		System.out.println("Confirm Clicked: " + getClass());
 
+		
+		
+		
 		model.finishCheckout();
 		productTable.getItems().clear();
 		totalTextBox.setText("0.00");

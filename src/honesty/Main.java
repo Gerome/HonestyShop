@@ -20,10 +20,14 @@ public class Main extends Application {
 	public static String editStockScreenFXML      = "/resources/FXML/EditStockScreen.fxml";
 	public static String getBillScreenID          = "bill";
 	public static String getBillScreenFXML        = "/resources/FXML/GetBillScreen.fxml";
+	public static String getStaffBillScreenID     = "staff bill";
+	public static String getStaffBillScreenFXML   = "/resources/FXML/GetStaffBillScreen.fxml";
 	public static String checkoutScreenID         = "checkout";
 	public static String checkoutScreenFXML       = "/resources/FXML/CheckoutScreen.fxml";
 	public static String authenticationScreenID   = "auth";
 	public static String authenticationScreenFXML = "/resources/FXML/AuthenticationScreen.fxml";
+	
+	
 	public static String iconPath = "src\\resources\\Lanzarote-Logo.png";
 	public static void main( String args[] ){
 		launch(args);
@@ -41,8 +45,10 @@ public class Main extends Application {
 		mainController.loadScreen(adminScreenID, adminScreenFXML);
 		mainController.loadScreen(editStockScreenID, editStockScreenFXML);
 		mainController.loadScreen(getBillScreenID, getBillScreenFXML);
+		mainController.loadScreen(getStaffBillScreenID, getStaffBillScreenFXML);
 		mainController.loadScreen(checkoutScreenID, checkoutScreenFXML);
 		mainController.loadScreen(authenticationScreenID, authenticationScreenFXML);
+		
 		
 		// Set the opening screen to the accommodation screen.
 		mainController.setScreen(accommodationScreenID);

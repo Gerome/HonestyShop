@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
+import java.util.Optional;
 
 import honesty.Main;
 import honesty.order.Order;
@@ -16,6 +17,7 @@ import honesty.product.ProductController;
 import javafx.animation.PauseTransition;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextInputDialog;
 import javafx.util.Duration;
 
 public class CheckoutModel {
@@ -27,9 +29,18 @@ public class CheckoutModel {
 	private Order order;
 	private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	private NumberFormat euCostFormat = NumberFormat.getCurrencyInstance(Locale.FRANCE);
+	private String name;
 
 	public CheckoutModel(String accommodation) {
 		setAccommodation(accommodation);
+		euCostFormat.setMinimumFractionDigits(2);
+		euCostFormat.setMaximumFractionDigits(2);
+		currentProduct = null;
+	}
+
+	public CheckoutModel(String accommodation, String username) {
+		setAccommodation(accommodation);
+		this.name = username;
 		euCostFormat.setMinimumFractionDigits(2);
 		euCostFormat.setMaximumFractionDigits(2);
 		currentProduct = null;
@@ -97,19 +108,37 @@ public class CheckoutModel {
 	
 	public void displayConfirmedPopup() {
 		
-		PauseTransition delay = new PauseTransition(Duration.seconds(3));
+		
 		Alert alert = new Alert(AlertType.INFORMATION);
 		
     	alert.setTitle("Purchase confirmed");
     	alert.setHeaderText("Purchase confirmed");
-    	alert.setContentText("Thank you for using the honest shop");
+    	alert.setContentText("Thank you for using the honesty shop");
     
     	alert.initOwner(Main.getStage());
     	
     	alert.show();	
     	
-    	delay.setOnFinished(e -> alert.close());
+    	
  
+	}
+	
+	public void getNamePopup() {
+		
+		
+		TextInputDialog dialog = new TextInputDialog("");
+		dialog.setTitle("Honesty shop name");
+		dialog.setHeaderText("Please enter your name and put the correct change in the tin.");
+		dialog.setContentText("Name:");
+		
+		dialog.initOwner(Main.getStage());
+
+		// Traditional way to get the response value.
+		Optional<String> result = dialog.showAndWait();
+		
+		result.ifPresent(X -> this.name = X);
+		
+		
 	}
 
 	private Product getProductFromBasket(String barcode) {
@@ -135,13 +164,23 @@ public class CheckoutModel {
 		if (basket.isEmpty())
 			return;
 
-		order = new Order(sdf.format(new Date()) + accommodation, accommodation, sdf.format(new Date()),
-				getBasketTotal(), "Gerome");
-		order.setItemList(basket);
-		System.out.println(order.getDatetime());
-		OrderController.newOrder(order);
+		if(this.accommodation.equals("Other"))
+			getNamePopup();
 		
 		displayConfirmedPopup();
+		
+		order = new Order(sdf.format(new Date()) + accommodation, accommodation, sdf.format(new Date()),
+				getBasketTotal(), this.name);
+		
+		
+		
+		order.setItemList(basket);
+		
+		OrderController.newOrder(order);
+		
+	 
+			
+			
 		
 	}
 

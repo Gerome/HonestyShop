@@ -113,6 +113,9 @@
                            <font>
                               <Font size="18.0" />
                            </font>
+                           <HBox.margin>
+                              <Insets right="10.0" />
+                           </HBox.margin>
                         </Button>
                         <Button alignment="BOTTOM_RIGHT" focusTraversable="false" mnemonicParsing="false" onAction="#confirmClicked" text="Finish">
                            <font>

@@ -7,7 +7,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import email.EmailSender;
 import honesty.Main;
+import honesty.checkout.CheckoutModel;
 import honesty.product.Product;
 import honesty.product.ProductController;
 import javafx.event.ActionEvent;
@@ -19,26 +21,39 @@ public class AdminController extends ControlledView {
 	
 	private static ArrayList<Product> mercShoppingList;
 	private static ArrayList<Product> gmShoppingList;
+	private static String username;
 	
 	private SimpleDateFormat SDF = new SimpleDateFormat("EEE, dd MMM");
 	
     @FXML
     void backClicked(ActionEvent event) {
     	System.out.println("Back Clicked: " + getClass());
+    	AdminController.username = "";
     	this.getControllerParent().setScreen(Main.accommodationScreenID);
     }
 
     @FXML
     void editStockClicked(ActionEvent event) {
     	System.out.println("Edit Stock Clicked");
+    	AdminController.username = "";
     	this.getControllerParent().setScreen(Main.editStockScreenID);
     }
 
     @FXML
-    void getBillClicked(ActionEvent event) {
+    void getStaffBillClicked(ActionEvent event) {
     	System.out.println("Get Bill Clicked");
-    	this.getControllerParent().setScreen(Main.getBillScreenID);
+    	AdminController.username = "";
+    	this.getControllerParent().setScreen(Main.getStaffBillScreenID);
     }
+    
+    @FXML
+    void buyItemStaffClicked(ActionEvent event) {
+    	System.out.println("Buy item Clicked");
+    	((CheckoutController) getControllerParent().getControlledView(Main.checkoutScreenID)).setCheckoutModel(new CheckoutModel("Staff", AdminController.username));
+    	AdminController.username = "";
+    	this.getControllerParent().setScreen(Main.checkoutScreenID);
+    }
+    
 
     @FXML
     void printListClicked(ActionEvent event) throws ClassNotFoundException, SQLException {
@@ -52,8 +67,9 @@ public class AdminController extends ControlledView {
     		
     	try{
     		
+    		String filename = "Shopping list " + SDF.format(new Date()) + ".csv";
 
-    	    PrintWriter writer = new PrintWriter("Shopping list " + SDF.format(new Date()) + ".csv", "UTF-8");
+    	    PrintWriter writer = new PrintWriter(filename, "UTF-8");
     	    
     	    writer.write(String.format("%15s %10s %10s %15s %12s \r\n", "Product,", "Buy Price,", "Sell Price,", "To Purchase,", "Supplier"));
     	    
@@ -84,15 +100,16 @@ public class AdminController extends ControlledView {
         	
         	writer.close();
         	
-        	Alert alert = new Alert(AlertType.INFORMATION);
+        	EmailSender.sendEmail(filename);
         	
-        	alert.setTitle("Shopping list");
+        	Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("Shopping list");
         	alert.setHeaderText("Shopping list");
-        	alert.setContentText("The shopping list is now on the desktop");
+        	alert.setContentText("The list has been sent to the info hut.\nMake sure you ask them to print it.");
         
         	alert.initOwner(Main.getStage());
         	
-        	alert.show();	
+        	alert.show();
         	
     	} catch (IOException e) {
     	   System.out.println(e.getStackTrace());
@@ -100,4 +117,7 @@ public class AdminController extends ControlledView {
     	
     }
     
+    public static void setUsername(String name) {
+    	AdminController.username = name;
+    }
 }

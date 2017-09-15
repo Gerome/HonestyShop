@@ -29,6 +29,7 @@ public class EditStockController extends ControlledView {
     	alert.setTitle("Reset all stock");
     	alert.setHeaderText("You are about to reset all stock level");
     	alert.setContentText("You will not be able to undo this");
+    	alert.initOwner(Main.getStage());
     	alert.showAndWait().ifPresent(rs -> {
     	    if (rs == ButtonType.OK) {
     	    	try {

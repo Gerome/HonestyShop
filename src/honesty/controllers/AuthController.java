@@ -31,6 +31,7 @@ public class AuthController extends ControlledView {
     void loginClicked(ActionEvent event) throws SQLException {
     	System.out.println("Login Clicked");
     	if(LoginModel.authenticateUser(userNameField.getText(), passwordField.getText())) {
+    		AdminController.setUsername(userNameField.getText());
     		userNameField.setText("");
     		passwordField.setText("");
     		this.getControllerParent().setScreen(Main.adminScreenID);

@@ -8,6 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import email.EmailSender;
 import honesty.Main;
 import honesty.order.Order;
 import honesty.order.OrderController;
@@ -102,26 +103,35 @@ public class GetBillController extends ControlledView {
 
 		try {
 
-			PrintWriter writer = new PrintWriter(accommodationPicker.getValue() + " Receipt " + SDF.format(new Date()) + ".csv", "UTF-8");
+			String filename = accommodationPicker.getValue() + " Receipt " + SDF.format(new Date()) + ".txt";
+			
+			PrintWriter writer = new PrintWriter(filename, "UTF-8");
 
-			writer.write(String.format("%s \r\n", accommodationPicker.getValue()));
+			writer.write(String.format("%s \r\n\n", accommodationPicker.getValue()));
+			
+			writer.write(String.format("%-25s %5s %10s\n", "Item", "Qty", "Price"));
+			writer.write(String.format("%-25s %5s %10s\n", "----", "---", "-----"));
 
 			for (int i = 0; i < orderTable.getItems().size(); i++) {
 
-				writer.write(String.format("%15s %10s \r\n", orderTable.getItems().get(i).getProductName() + ",",
-						orderTable.getItems().get(i).getLineTotal() + " euros"));
+				writer.write(String.format("%-25s %5s %10s\n \r\n", 
+						orderTable.getItems().get(i).getProductName(),
+						orderTable.getItems().get(i).getQuantity(),
+						orderTable.getItems().get(i).getLineTotal() + "\u20ac"));
 
 			}
 
-			writer.write(String.format("%s %s \r\n", "Total: ,", totalTextBox.getText() + " euros"));
+			writer.write(String.format("\n%-31s %10s \r\n", "Total:", totalTextBox.getText() + "\u20ac"));
 
 			writer.close();
+			
+			EmailSender.sendEmail(filename);
 			
 			
 			Alert alert = new Alert(AlertType.INFORMATION);
 			alert.setTitle("Shopping bill");
         	alert.setHeaderText("Shopping bill");
-        	alert.setContentText("Your bill is now on the desktop");
+        	alert.setContentText("Your bill has been sent to the info hut.\nMake sure you ask them to print it.");
         
         	alert.initOwner(Main.getStage());
         	
@@ -150,6 +160,8 @@ public class GetBillController extends ControlledView {
 					"Accommodation error", 
 					"You have not selected your accommodation",
 					"Please select one from the drop to the right of the date picker");
+		
+		
 
 		orderTable.getItems().clear();
 		orderDetailList.clear();

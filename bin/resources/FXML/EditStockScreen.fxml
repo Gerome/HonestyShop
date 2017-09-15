@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -24,14 +25,32 @@
       </Button>
       <VBox prefHeight="650.0" prefWidth="690.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
          <children>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="78.0" prefWidth="690.0">
+            <HBox alignment="BOTTOM_CENTER" prefHeight="58.0" prefWidth="1280.0">
                <children>
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
-                  <TextField />
+                  <TextField>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
+                  <TextField>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
+                  <TextField>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
+                  <TextField>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
+                  <TextField>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
+                  <TextField>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></TextField>
                   <ComboBox prefWidth="150.0" />
                </children>
             </HBox>
@@ -39,11 +58,17 @@
                <font>
                   <Font size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
             </Button>
             <Button fx:id="replenishStockButton" mnemonicParsing="false" onMouseClicked="#replenishStockClicked" text="Replenish Stock">
                <font>
                   <Font size="18.0" />
                </font>
+               <VBox.margin>
+                  <Insets left="10.0" top="10.0" />
+               </VBox.margin>
             </Button>
          </children>
       </VBox>

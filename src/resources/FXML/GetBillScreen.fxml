@@ -162,10 +162,13 @@
                   </Text>
                </children>
             </HBox>
-            <Button fx:id="printBillButton" disable="true" mnemonicParsing="false" onAction="#printBillClicked" text="Print bill">
+            <Button fx:id="printBillButton" disable="true" mnemonicParsing="false" onAction="#printBillClicked" text="Email Bill To Office">
                <font>
                   <Font size="17.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Button>
          </children>
       </VBox>

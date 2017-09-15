@@ -50,7 +50,19 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" />
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#buyItemStaffClicked" prefHeight="106.0" prefWidth="580.0" text="Buy item">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children></AnchorPane>
+            <Button mnemonicParsing="false" onAction="#getStaffBillClicked" prefHeight="106.0" prefWidth="580.0" text="Get Staff Bill" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
          </children>
       </GridPane>
       <Button mnemonicParsing="false" onAction="#backClicked" text="Back" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="6.0">
